@@ -1,0 +1,466 @@
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    学生打分
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="form-group col-lg-2">
+            <label>班级</label>
+            <select class="form-control">
+                <option>全部班级</option>
+                <option>java01班</option>
+                <option>java02班</option>
+                <option>IOS01班</option>
+            </select>
+        </div>
+        <div class="form-group col-lg-2">
+            <label>学员</label>
+            <select class="form-control">
+                <option>张三</option>
+                <option>李四</option>
+                <option>王五</option>
+                <option>陈凯</option>
+                <option>王芳</option>
+            </select>
+        </div>
+        <div class="col-lg-12"></div>
+        <div class="col-lg-12 form-item" id="form-daily">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>日常表现</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                            <tr>
+                                <th class="date"></th>
+                                <th>周一</th>
+                                <th>周二</th>
+                                <th>周三</th>
+                                <th>周四</th>
+                                <th>周五</th>
+                                <th>周六</th>
+                                <th>周日</th>
+                                <th class="comments">总分／备注</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="date">第一周</td>
+                                <td>8</td>
+                                <td>7</td>
+                                <td>8</td>
+                                <td>7</td>
+                                <td>8</td>
+                                <td>7</td>
+                                <td>7</td>
+                                <td class="comments">44 [上课认真]</td>
+                            </tr>
+                            <tr>
+                                <td class="date">第二周</td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td class="comments"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="date">第三周</td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td class="comments"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="date">第四周</td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td class="comments"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="date">第五周</td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td class="comments"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="date">第六周</td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td class="comments"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="date">第七周</td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td class="comments"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="date">第八周</td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td class="comments"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="date">第九周</td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td class="comments"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="date">第十周</td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td class="comments"><input type="text"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 form-item" id="form-knowledge">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>学习效果</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                            <tr>
+                                <th class="date"></th>
+                                <th class="project">练习／项目</th>
+                                <th class="score">打分</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="date">第一周</td>
+                                <td class="project">KPI管理系统</td>
+                                <td class="score">7</td>
+                            </tr>
+                            <tr>
+                                <td class="date">第二周</td>
+                                <td class="project"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="date">第三周</td>
+                                <td class="project"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="date">第四周</td>
+                                <td class="project"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="date">第五周</td>
+                                <td class="project"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="date">第六周</td>
+                                <td class="project"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="date">第七周</td>
+                                <td class="project"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="date">第八周</td>
+                                <td class="project"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="date">第九周</td>
+                                <td class="project"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td class="date">第十周</td>
+                                <td class="project"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 form-item" id="form-notes">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>学习笔记</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th class="comments">点评</th>
+                                <th class="score">打分</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>第一周</td>
+                                <td class="comments">比较清楚详细</td>
+                                <td class="score">9</td>
+                            </tr>
+                            <tr>
+                                <td>第二周</td>
+                                <td class="comments"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>第三周</td>
+                                <td class="comments"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>第四周</td>
+                                <td class="comments"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>第五周</td>
+                                <td class="comments"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>第六周</td>
+                                <td class="comments"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>第七周</td>
+                                <td class="comments"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>第八周</td>
+                                <td class="comments"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>第九周</td>
+                                <td class="comments"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>第十周</td>
+                                <td class="comments"><input type="text"></td>
+                                <td class="score"><input type="text"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-10 form-item" id="form-interview">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>面试能力</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th class="date" width="15%">日期</th>
+                                <th class="comment" width="55%">评价</th>
+                                <th colspan="2" width="20%">面试官签字／打分</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="date">2016.7.2</td>
+                                <td class="comment">沟通顺利，逻辑清晰。</td>
+                                <td class="score">4</td>
+                                <td class="sign">王军</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!--
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="date" width="15%">日期</th>
+                                    <th class="comment" width="55%">评价</th>
+                                    <th colspan="2" width="20%">面试官签字／打分</th>
+                                    <th width="10%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="date">2016.7.2</td>
+                                    <td class="comment">沟通顺利，逻辑清晰。</td>
+                                    <td class="score">4</td>
+                                    <td class="sign">王军</td>
+                                    <td>
+                                        <a href="#" class="">修改</a>
+                                        <a href="#" style="float:right;color:red;">删除</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="date"><input type="text" style="width:100px"></td>
+                                    <td class="comment"><textarea row="3" style="width:500px"></textarea></td>
+                                    <td class="score"><input type="text">
+                                    </td>
+                                    <td class="sign"><input type="text" style="width:80px"></td>
+                                    <td>
+                                        <a href="#" class="">提交</a>
+                                        <a href="#" style="float:right;color:red;">重置</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-10 form-item" id="form-project">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>商业项目</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th class="task">任务</th>
+                                <th class="comments">完成情况</th>
+                                <th class="score">打分</th>
+                                <th class="action"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="task">轻课KPI管理系统</td>
+                                <td class="comments">沟通顺利，逻辑清晰。</td>
+                                <td class="score">4</td>
+                                <td>
+                                    <a href="#" class="">修改</a>
+                                    <a href="#" style="float:right;color:red;">删除</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="task"><input type="text"></td>
+                                <td class="comments"><input type="text"></td>
+                                <td class="score"><input type="text">
+                                </td>
+                                <td>
+                                    <a href="#" class="">提交</a>
+                                    <a href="#" style="float:right;color:red;">重置</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-10 form-item" id="form-summary">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>总分</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="form-group col-lg-3">
+                            <label>学生姓名</label>
+                            <input class="form-control" value="张三" readyonly>
+                        </div>
+
+                        <div class="form-group col-lg-3">
+                            <label>班级</label>
+                            <input class="form-control" value="java01班" readonly>
+                        </div>
+
+                        <div class="form-group col-lg-3">
+                            <label>电话</label>
+                            <input class="form-control" value="15000000000" readonly>
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <label>状态</label>
+                            <input class="form-control" value="在读" readonly>
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label>总分</label>
+                            <input class="form-control">
+                        </div>
+
+                        <div class="form-group col-lg-10">
+                            <label>总评</label>
+                            <input class="form-control">
+                        </div>
+
+                        <div class="form-group col-lg-12">
+                            <button type="submit" class="btn btn-default float-r">保存</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+<script src="/js/admin.js"></script>

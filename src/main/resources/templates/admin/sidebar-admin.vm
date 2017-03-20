@@ -1,0 +1,17 @@
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav">
+        <li>
+            <a href="personal-info-admin.vm"><i class="fa fa-fw fa-table"></i>个人信息</a>
+        </li>
+        <li>
+            <a href="password-admin.vm"><i class="fa fa-fw fa-table"></i>修改密码</a>
+        </li>
+        <li class="active">
+            <a href="accounts-admin.vm"><i class="fa fa-fw fa-table"></i>账户管理</a>
+        </li>
+        <li>
+            <a href="info-admin.vm"><i class="fa fa-fw fa-table"></i>基础信息维护</a>
+        </li>
+    </ul>
+</div>

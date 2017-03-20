@@ -1,0 +1,74 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            个人信息
+        </h1>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <form id="inputForm" role="form">
+        <div class="col-lg-4">
+
+            <div class="form-group">
+                <label>学号<span style="font-size:10px;color:#cc000e;margin-left:5px;">(只读)</span></label>
+                <input name="userId" class="form-control" value="$!{student.userId}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>班级<span style="font-size:10px;color:#cc000e;margin-left:5px;">(只读)</span></label>
+                <input name="className" class="form-control" value="$!{student.className}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>姓名<span style="font-size:10px;color:#cc000e;margin-left:5px;">(只读)</span></label>
+                <input name="realName" class="form-control" value="$!{student.realName}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>电话</label>
+                <input name="mobile" class="form-control" placeholder="请输入您的电话" value="$!{student.mobile}">
+            </div>
+
+        </div>
+        <div class="col-lg-4">
+
+            <div class="form-group">
+                <label>邮箱</label>
+                <input name="email" class="form-control" placeholder="请输入您的邮箱" value="$!{student.email}">
+            </div>
+
+            <div class="form-group">
+                <label>所在院校</label>
+                <input name="school" class="form-control" placeholder="请输入您的所在院校" value="$!{student.school}">
+            </div>
+
+            <div class="form-group">
+                <label>专业</label>
+                <input name="major" class="form-control" placeholder="请输入您的专业" value="$!{student.major}">
+            </div>
+            <button id="submit" type="button" class="btn btn-default float-r form-group">保存修改</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    $("#submit").click(function () {
+        var input = $("#inputForm").serialize();
+        $.ajax({
+            type: "PUT",
+            url: "/student/personalinfo",
+            data: input,
+            datatype: "json",
+            success: function (data) {
+                if (!data.success) {
+                    alert("用户信息更新失败");
+                } else {
+                    location.href = "/student/personalinfo";
+                }
+            }
+        });
+    });
+</script>

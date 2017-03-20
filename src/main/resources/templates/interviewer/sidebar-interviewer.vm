@@ -1,0 +1,14 @@
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav">
+        <li>
+            <a href="personal-info-interviewer.vm"><i class="fa fa-fw fa-table"></i>个人信息</a>
+        </li>
+        <li>
+            <a href="password-interviewer.vm"><i class="fa fa-fw fa-table"></i>修改密码</a>
+        </li>
+        <li>
+            <a href="score-interviewer.vm"><i class="fa fa-fw fa-table"></i>面试能力</a>
+        </li>
+    </ul>
+</div>

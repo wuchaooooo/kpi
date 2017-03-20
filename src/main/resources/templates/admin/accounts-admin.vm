@@ -1,0 +1,147 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            账户管理
+        </h1>
+    </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-6">
+
+        <table class="table table-bordered table-striped" id="account-table">
+            <thead>
+            <tr>
+                <th class="eID sortable"><a href="#">用户ID</a><i class="fa fa-sort"></i></th>
+                <th class="eName sortable"><a href="#">姓名</a><i class="fa fa-sort"></i></th>
+                <th class="permission sortable"><a href="#">用户类别</a><i class="fa fa-sort"></i></th>
+                <th class="action"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="eID">001</td>
+                <td class="eName">张三</td>
+                <td class="permission">学员</td>
+                <td>
+                    <a href="#" class="user-modify">修改</a>
+                    <a href="#" class="user-reset">重置密码</a>
+                    <a href="#" style="float:right;color:red;">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="eID">002</td>
+                <td class="eName">李四</td>
+                <td class="permission">调查员 | 面试官</td>
+                <td>
+                    <a href="#" class="user-modify">修改</a>
+                    <a href="#" class="user-reset">重置密码</a>
+                    <a href="#" style="float:right;color:red;">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="eID">003</td>
+                <td class="eName">老王</td>
+                <td class="permission">面试官</td>
+                <td>
+                    <a href="#" class="user-modify">修改</a>
+                    <a href="#" class="user-reset">重置密码</a>
+                    <a href="#" style="float:right;color:red;">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="eID">004</td>
+                <td class="eName">老李</td>
+                <td class="permission">超级管理员</td>
+                <td>
+                    <a href="#" class="user-modify">修改</a>
+                    <a href="#" class="user-reset">重置密码</a>
+                    <a href="#" style="float:right;color:red;">删除</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="eID">005</td>
+                <td class="eName">小方</td>
+                <td class="permission">就业指导老师</td>
+                <td>
+                    <a href="#" class="user-modify">修改</a>
+                    <a href="#" class="user-reset">重置密码</a>
+                    <a href="#" style="float:right;color:red;">删除</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <button type="submit" id="create-user" class="btn btn-default float-r">创建账户</button>
+    </div>
+    <div class="col-lg-4">
+        <form id="user-form">
+
+            <div class="form-group">
+                <label>用户ID</label>
+                <input class="form-control form-eID" value="">
+            </div>
+
+            <div class="form-group">
+                <label>姓名</label>
+                <input class="form-control form-eName" value="">
+            </div>
+            <div class="form-group">
+                <label>用户类别</label>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="form-permission" value="学员">学员
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="form-permission" value="班主任">班主任
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="form-permission" value="驻班教师">驻班教师
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="form-permission" value="面试官">面试官
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="form-permission" value="调查员">调查员
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="form-permission" value="就业指导老师">就业指导老师
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="form-permission" value="超级管理员">超级管理员
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default">保存修改</button>
+
+        </form>
+
+        <form id="user-reset-form">
+
+            <div class="form-group">
+                <label>当前随机生成的密码为：</label>
+                <p style="color:red;">33ud4i8dk2</p>
+            </div>
+
+            <div class="form-group">
+                <label>将密码发送到：</label>
+                <input class="form-control" value="">
+            </div>
+            <button type="submit" class="btn btn-default">发送</button>
+
+        </form>
+    </div>
+</div>

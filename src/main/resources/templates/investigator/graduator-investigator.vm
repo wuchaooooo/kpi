@@ -1,0 +1,100 @@
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    毕业生信息
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <div class="row">
+            <div class="col-lg-10">
+
+                <table class="table table-bordered table-striped" id="graduator-interview-table">
+                    <thead>
+                    <tr>
+                        <th class="stuName sortable"><a href="#">姓名</a><i class="fa fa-sort"></i></th>
+                        <th class="company sortable"><a href="#">所在公司</a><i class="fa fa-sort"></i></th>
+                        <th class="salary sortable"><a href="#">薪资情况</a><i class="fa fa-sort"></i></th>
+                        <th class="comment sortable"><a href="#">备注</a><i class="fa fa-sort"></i></th>
+                        <th class="action"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="stuName">张三</td>
+                        <td class="company">某某信息技术有限公司</td>
+                        <td class="salary">6000</td>
+                        <td class="comment">刚入职</td>
+                        <td>
+                            <a href="#" class="graduator-modify">修改</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="stuName">李四</td>
+                        <td class="company">阿里巴巴</td>
+                        <td class="salary">7000</td>
+                        <td class="comment">java开发</td>
+                        <td>
+                            <a href="#" class="graduator-modify">修改</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="stuName">王五</td>
+                        <td class="company">－</td>
+                        <td class="salary">－</td>
+                        <td class="comment">无</td>
+                        <td>
+                            <a href="#" class="graduator-modify">修改</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="stuName">陈凯</td>
+                        <td class="company">华为</td>
+                        <td class="salary">9000</td>
+                        <td class="comment">无</td>
+                        <td>
+                            <a href="#" class="graduator-modify">修改</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="stuName">王芳</td>
+                        <td class="company">信雅达</td>
+                        <td class="salary">7000</td>
+                        <td class="comment">无</td>
+                        <td>
+                            <a href="#" class="graduator-modify">修改</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <button type="submit" id="create-graduator" class="btn btn-default float-r">添加</button>
+            </div>
+            <div class="col-lg-10">
+                <form id="graduator-form">
+                    <div class="form-group col-lg-4">
+                        <label>姓名</label>
+                        <input class="form-control form-stuName">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label>薪资情况</label>
+                        <input class="form-control form-salary">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label>所在公司</label>
+                        <input class="form-control form-company">
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <label>备注</label>
+                        <textarea class="form-control form-comment" rows="5"></textarea>
+                    </div>
+                    <div class="col-lg-12">
+                        <button type="submit" class="btn btn-default float-r">保存修改</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+<script src="/js/admin.js"></script>

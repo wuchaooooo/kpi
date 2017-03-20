@@ -1,0 +1,57 @@
+<header>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index-student.vm">KPI管理系统</a>
+                <span>(
+                    #if($!{loginUser.role} eq "student")
+                        学员
+                    #elseif($!{loginUser.role} eq "headTeacher")
+                        班主任
+                    #elseif($!{loginUser.role} eq "teacher")
+                        驻班教师
+                    #elseif($!{loginUser.role} eq "interviewer")
+                        面试官
+                    #elseif($!{loginUser.role} eq "investigator")
+                        调查员
+                    #elseif($!{loginUser.role} eq "guider")
+                        就业指导老师
+                    #end )
+            </span>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                            class="fa fa-user"></i> $!{loginUser.realName} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/$!{loginUser.role}/personalInfo"><i class="fa fa-fw fa-user"></i>个人信息</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/login"><i class="fa fa-fw fa-power-off"></i>退出登陆</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            #if($role eq "student")
+                #parse('student/sidebar-student.vm')
+            #elseif($role eq "headTeacher")
+                #parse('headTeacher/sidebar-headTeacher.vm')
+            #elseif($role eq "teacher")
+                #parse('teacher/sidebar-teacher.vm')
+            #elseif($role eq "interviewer")
+                #parse('interviewer/sidebar-interviewer.vm')
+            #elseif($role eq "investigator")
+                #parse('investigator/sidebar-investigator.vm')
+            #elseif($role eq "guider")
+                #parse('guider/sidebar-guider.vm')
+            #end
+        </nav>
+</header>

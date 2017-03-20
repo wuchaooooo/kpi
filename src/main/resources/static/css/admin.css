@@ -1,0 +1,383 @@
+/*!
+ * Start Bootstrap - SB Admin Bootstrap Admin Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Global Styles */
+
+body {
+    margin-top: 100px;
+}
+body#login{
+    background-color: #333;
+}
+
+@media(min-width:768px) {
+    body {
+        margin-top: 50px;
+    }
+}
+
+#wrapper {
+    padding-left: 0;
+}
+
+#page-wrapper {
+    min-height: 600px;
+    width: 100%;
+    padding: 0 0 60px;
+    background-color: #fff;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 225px;
+    }
+
+    #page-wrapper {
+        padding: 10px 10px 60px;
+    }
+}
+input[type=file] {
+    font-size: 12px;
+    line-height: 12px;
+    margin: 10px 0;
+}
+#welcome-section {
+    text-align: center;
+}
+.sortable a {
+    color: #333;
+    text-decoration: none;
+}
+.sortable i {
+    padding-left: 5px;
+    font-size: 12px;
+}
+.sortable i.fa-sort-desc {
+    position: relative;
+    top: -3px;
+}
+.sortable i.fa-sort-asc {
+    position: relative;
+    top: 3px;
+}
+/* Top Navigation */
+
+.top-nav {
+    padding: 0 15px;
+}
+
+.top-nav>li {
+    display: inline-block;
+    float: left;
+}
+
+.top-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+    color: #999;
+}
+
+.top-nav>li>a:hover,
+.top-nav>li>a:focus,
+.top-nav>.open>a,
+.top-nav>.open>a:hover,
+.top-nav>.open>a:focus {
+    color: #fff;
+    background-color: #000;
+}
+
+.top-nav>.open>.dropdown-menu {
+    float: left;
+    position: absolute;
+    margin-top: 0;
+    border: 1px solid rgba(0,0,0,.15);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.top-nav>.open>.dropdown-menu>li>a {
+    white-space: normal;
+}
+
+/* Side Navigation */
+
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top: 51px;
+        left: 225px;
+        width: 225px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        overflow-y: auto;
+        background-color: #222;
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+    }
+
+    .side-nav>li>a {
+        width: 225px;
+    }
+
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+        outline: none;
+        background-color: #000 !important;
+    }
+}
+
+.side-nav>li>ul {
+    padding: 0;
+}
+
+.side-nav>li>ul>li>a {
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+    color: #999;
+}
+
+.side-nav>li>ul>li>a:hover {
+    color: #fff;
+}
+.side-nav li.active > a {
+    cursor: default;
+}
+
+/* Custom Colored Panels */
+.navbar-header {
+    padding-left: 50px;
+    background: url("../images/logo.png") no-repeat 20px 10px;
+}
+.navbar-header span{
+    color: #999;
+    display: block;
+    float: left;
+    padding: 17px 0 0;
+    font-size: 12px;
+}
+.float-r {
+    float: right;
+}
+#user-form,
+#user-reset-form,
+#info-form,
+#graduator-form,
+#feedback-form,
+#log-form {
+    display: none;
+}
+#user-form,
+#user-reset-form {
+    border: 1px solid #f2f2f2;
+    padding: 15px;
+    background-color: #fefefe;
+    margin-left: 15px;
+}
+#login-form h3 {
+    background: url("../images/logo-50x50.png") no-repeat 80px 0;
+    color: #f2f2f2;
+    padding: 15px 0;
+    margin: 15px auto;
+    width: 600px;
+    text-align: center;
+    font-size: 32px;
+}
+#login-form form{
+    background: url(../images/bg-login.png) no-repeat;
+    display: block;
+    padding: 40px 30px 30px;
+    width: 530px;
+    height: 400px;
+    margin: 20px auto 10px;
+    position: relative;
+}
+#login-form form #login-btn {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    width: 40px;
+    height:40px;
+    right: 7px;
+    top: 123px;
+    /*right: 27px;*/
+    /*top: 200px;*/
+}
+#score-interview-table .score{
+}
+#score-tea .form-item {
+    display: none;
+}
+#form-daily td input,
+#form-knowledge td input,
+#form-notes td input {
+    width: 100%;
+}
+#form-daily td {
+    width: 8%;
+}
+#form-daily td.date {
+    width: 12%;
+}
+#form-daily td.comments {
+    width: 32%;
+}
+#form-knowledge td.date,
+#form-notes td.date {
+    width: 15%;
+}
+#form-knowledge td.project,
+#form-notes td.comments {
+    width: 75%;
+}
+#form-knowledge td.score,
+#form-notes td.score {
+    width: 10%;
+}
+#form-project .task {
+    width: 20%;
+}
+#form-project .comment {
+    width: 60%;
+}
+#form-project .score {
+    width: 8%;
+}
+#form-project .action {
+    width: 12%;
+}
+
+#classmate-table .stuID {
+    width: 15%;
+}
+#classmate-table .stuName {
+    width: 10%;
+}
+#classmate-table .stuEmail {
+    width: 30%;
+}
+#classmate-table .stuPhone {
+    width: 30%;
+}
+#classmate-table .status {
+    width: 15%;
+}
+
+#graduator-table .stuID {
+    width: 15%;
+}
+#graduator-table .stuName {
+    width: 10%;
+}
+#graduator-table .stuEmail {
+    width: 25%;
+}
+#graduator-table .stuPhone {
+    width: 22%;
+}
+#graduator-table .status {
+    width: 13%;
+}
+#graduator-table .salary {
+    width: 15%;
+}
+
+#info-table .stuID {
+    width: 15%;
+}
+#info-table .stuName {
+    width: 10%;
+}
+#info-table .stuEmail {
+    width: 20%;
+}
+#info-table .stuPhone {
+    width: 20%;
+}
+#info-table .stuClass {
+    width: 15%;
+}
+#info-table .teacher {
+    width: 10%;
+}
+#info-table .action {
+    width: 10%;
+}
+
+#graduator-interview-table .stuName {
+    width: 12%;
+}
+#graduator-interview-table .company {
+    width: 33%;
+}
+#graduator-interview-table .salary {
+    width: 10%;
+}
+#graduator-interview-table .comment {
+    width: 35%;
+}
+#graduator-interview-table .action {
+    width: 10%;
+}
+
+#account-table .eID {
+    width: 20%;
+}
+#account-table .eName {
+    width: 15%;
+}
+#account-table .permission {
+    width: 30%;
+}
+#account-table .action {
+    width: 35%;
+}
+#account-table .user-reset {
+    margin-left: 10px;
+}
+
+#upload-table .date {
+    width: 20%;
+}
+#upload-table .name {
+    width: 60%;
+}
+#upload-table .action {
+    text-align: center;
+    width: 20%;
+}
+
+#feedback-table .stuName {
+    width: 17%;
+}
+#feedback-table .date {
+    width: 18%;
+}
+#feedback-table .type {
+    width: 15%;
+}
+#feedback-table .comment {
+    width: 40%;
+}
+#feedback-table .action {
+    width: 10%;
+}
+
+#log-table .date {
+    width: 20%;
+}
+#log-table .log {
+    width: 60%;
+}
+#log-table .action {
+    width: 20%;
+}

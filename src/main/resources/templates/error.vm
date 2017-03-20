@@ -1,0 +1,11 @@
+#set($layout='layout/blank.vm')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>错误页面</title>
+</head>
+<body>
+<h1>系统正在升级～请稍后重试</h1>
+</body>
+</html>

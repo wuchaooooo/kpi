@@ -1,0 +1,114 @@
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            往届学生
+        </h1>
+    </div>
+</div>
+<!-- /.row -->
+
+
+<div class="row">
+
+##            <div class="form-group col-lg-2">
+##    <label>班级</label>
+##    <div class="form-group">
+##
+##        <select class="form-control col-lg-2">
+##            <option>JAVA</option>
+##            <option>java01班</option>
+##            <option>java02班</option>
+##            <option>IOS01班</option>
+##        </select>
+##        <select class="form-control col-lg-2">
+##            <option>ANDROID</option>
+##            <option>java01班</option>
+##            <option>java02班</option>
+##            <option>IOS01班</option>
+##        </select>
+##        <select class="form-control col-lg-2">
+##            <option>IOS</option>
+##            <option>java01班</option>
+##            <option>java02班</option>
+##            <option>IOS01班</option>
+##        </select>
+##    </div>
+    <!-- Single button -->
+    <div class="col-lg-12">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                Action <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+    <table class="table table-bordered table-striped" id="graduator-table" style="margin-top: 20px">
+        <thead>
+        <tr>
+            <th class="stuID sortable"><a href="#">学号</a><i class="fa fa-sort"></i></th>
+            <th class="stuName sortable"><a href="#">姓名</a><i class="fa fa-sort"></i></th>
+            <th class="stuEmail sortable"><a href="#">邮箱</a><i class="fa fa-sort"></i></th>
+            <th class="stuPhone sortable"><a href="#">电话</a><i class="fa fa-sort"></i></th>
+            <th class="status sortable"><a href="#">就业情况</a><i class="fa fa-sort"></i></th>
+            <th class="salary sortable"><a href="#">薪资</a><i class="fa fa-sort"></i></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="stuID">0823830</td>
+            <td class="stuName">张三</td>
+            <td class="stuEmail">zs@qk.com</td>
+            <td class="stuPhone">13900000000</td>
+            <td class="status">已就业</td>
+            <td class="salary">6000</td>
+        </tr>
+        <tr>
+            <td class="stuID">0829384</td>
+            <td class="stuName">李四</td>
+            <td class="stuEmail">ls@qk.com</td>
+            <td class="stuPhone">15092800000</td>
+            <td class="status">已就业</td>
+            <td class="salary">8000</td>
+        </tr>
+        <tr>
+            <td class="stuID">0823290</td>
+            <td class="stuName">王五</td>
+            <td class="stuEmail">ww@qk.com</td>
+            <td class="stuPhone">15092800000</td>
+            <td class="status">已就业</td>
+            <td class="salary">9000</td>
+        </tr>
+        <tr>
+            <td class="stuID">0823830</td>
+            <td class="stuName">陈凯</td>
+            <td class="stuEmail">ck@qk.com</td>
+            <td class="stuPhone">15092800000</td>
+            <td class="status">已就业</td>
+            <td class="salary">6000</td>
+        </tr>
+        <tr>
+            <td class="stuID">0829300</td>
+            <td class="stuName">王芳</td>
+            <td class="stuEmail">wf@qk.com</td>
+            <td class="stuPhone">15092800000</td>
+            <td class="status">未就业</td>
+            <td class="salary">－</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+
+</div>
+

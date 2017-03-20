@@ -1,0 +1,20 @@
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav">
+        <li>
+            <a href="/headteacher/personalinfo"><i class="fa fa-fw fa-table"></i>个人信息</a>
+        </li>
+        <li>
+            <a href="/headteacher/modifypwd"><i class="fa fa-fw fa-table"></i>修改密码</a>
+        </li>
+        <li>
+            <a href="/headteacher/baseinfo"><i class="fa fa-fw fa-table"></i>基础信息维护</a>
+        </li>
+        <li>
+            <a href="/headteacher/classavgsalary"><i class="fa fa-fw fa-table"></i>班级平均薪资</a>
+        </li>
+        <li>
+            <a href="/headteacher/salaryranking"><i class="fa fa-fw fa-table"></i>就业薪资排行榜</a>
+        </li>
+    </ul>
+</div>

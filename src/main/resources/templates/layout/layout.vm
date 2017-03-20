@@ -1,0 +1,14 @@
+#parse('common/head.vm')
+#parse('common/header.vm')
+<main>
+##    固定侧边导航栏
+    <div id="wrapper">
+        <div id="page-wrapper">
+##            使得内容展示页的宽度始终100%
+            <div class="container-fluid">
+                $screen_content
+            </div>
+        </div>
+    </div>
+</main>
+#parse('common/footer.vm')

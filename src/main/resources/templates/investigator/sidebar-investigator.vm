@@ -1,0 +1,17 @@
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav">
+        <li>
+            <a href="personal-info-investigator.vm"><i class="fa fa-fw fa-table"></i>个人信息</a>
+        </li>
+        <li>
+            <a href="password-investigator.vm"><i class="fa fa-fw fa-table"></i>修改密码</a>
+        </li>
+        <li class="active">
+            <a href="feedback-investigator.vm"><i class="fa fa-fw fa-table"></i>反馈意见</a>
+        </li>
+        <li>
+            <a href="graduator-investigator.vm"><i class="fa fa-fw fa-table"></i>毕业生信息</a>
+        </li>
+    </ul>
+</div>

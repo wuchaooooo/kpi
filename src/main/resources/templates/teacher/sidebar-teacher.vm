@@ -1,0 +1,38 @@
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav">
+        <li>
+            <a href="personal-info-teacher.vm"><i class="fa fa-fw fa-table"></i>个人信息</a>
+        </li>
+        <li>
+            <a href="password-teacher.vm"><i class="fa fa-fw fa-table"></i>修改密码</a>
+        </li>
+        <li>
+            <a href="info-teacher.vm"><i class="fa fa-fw fa-table"></i>学生信息</a>
+        </li>
+        <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#score"><i class="fa fa-fw fa-arrows-v"></i> 学生打分
+                <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul id="score" class="collapse" style="">
+                <li>
+                    <a href="score-teacher.vm?cate=form-daily">日常表现</a>
+                </li>
+                <li>
+                    <a href="score-teacher.vm?cate=form-knowledge">学习效果</a>
+                </li>
+                <li>
+                    <a href="score-teacher.vm?cate=form-notes">学习笔记</a>
+                </li>
+                <li>
+                    <a href="score-teacher.vm?cate=form-interview">面试能力</a>
+                </li>
+                <li>
+                    <a href="score-teacher.vm?cate=form-project">商业项目</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="log-teacher.vm"><i class="fa fa-fw fa-table"></i>日志</a>
+        </li>
+    </ul>
+</div>

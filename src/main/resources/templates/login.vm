@@ -1,0 +1,120 @@
+#set($layout='layout/blank.vm')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>轻课学员KPI管理系统</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- jQuery -->
+    <script src="/js/jquery.js"></script>
+##<script src="js/admin.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body id="login">
+<div id="login-form">
+    <h3>轻课学员KPI管理系统</h3>
+    <form id="loginConfirm" action="/loginConfirm" method="post" class="form-horizontal" role="form">
+
+        <div class="form-group">
+            <span>$!{error}</span>
+        </div>
+        <div class="form-group">
+            <label for="userId" class="col-lg-2 control-label">用户ID</label>
+            <div class="col-lg-8">
+                <input type="text" id="userId" name="userId" class="form-control">
+            </div>
+        </div>
+        <br/>
+        <div class="form-group">
+            <label for="password" class="col-lg-2 control-label">密码</label>
+            <div class="col-lg-8">
+                <input type="password" id="password" name="password" class="form-control">
+            </div>
+        </div>
+        <br/>
+
+        <div class="form-group">
+            <label for="select-role" class="col-lg-2 control-label">角色</label>
+            <div class="col-lg-8">
+                <select name="role" id="select-role" class="form-control">
+                    <option value="student">学员</option>
+                    <option value="headTeacher">班主任</option>
+                    <option value="teacher">驻班教师</option>
+                    <option value="interviewer">面试官</option>
+                    <option value="investigator">调查员</option>
+                    <option value="guider">就业指导老师</option>
+                    <option value="admin">超级管理员</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <a id="login-btn" href="javascript:submit()"></a>
+        </div>
+    </form>
+
+</div>
+<!-- /#wrapper -->
+
+##<script>
+##    $(document).ready(function () {
+##        $("#login-form #login-btn").click(function () {
+##            var role = $("#select-role").val();
+##            var userId = $("#userId").val();
+##            var password = $("#password").val();
+##            var input = $("#loginConfirm").serialize();
+##            if (userId == "" || password == "") {
+##                alert("用户名密码不能为空，请重新输入");
+##            } else {
+##                $.ajax({
+##                    url: "loginConfirm",
+##                    type: "post",
+##                    contentType: "application/x-www-form-urlencoded",
+##                    data: input,
+##                    datatype: "json",
+##                    success: function (data) {
+##                        if (!data.success) {
+##                            alert("用户名或密码错误，请重新输入");
+##                            $("#userId").val("");
+##                            $("#password").val("");
+##                        } else {
+##                            location.href = role + "/index";
+##                        }
+##                    }
+##                });
+##            }
+##        });
+##    });
+##
+##</script>
+
+<script>
+    function submit() {
+        $("#loginConfirm").submit();
+    }
+</script>
+</body>
+</html>

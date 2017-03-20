@@ -1,0 +1,24 @@
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                    <a href="/student/personalinfo"><i class="fa fa-fw fa-table"></i>个人信息</a>
+                </li>
+                <li>
+                    <a href="/student/modifypwd"><i class="fa fa-fw fa-table"></i>修改密码</a>
+                </li>
+                <li>
+                    <a href="/student/uploadfile"><i class="fa fa-fw fa-table"></i>上传附件</a>
+                </li>
+                <li>
+                    <a href="/student/classmates"><i class="fa fa-fw fa-table"></i>班级同学</a>
+                </li>
+                <li>
+                    <a href="/student/graduate"><i class="fa fa-fw fa-table"></i>往届学生</a>
+                </li>
+                <li>
+                    <a href="/student/feedback"><i class="fa fa-fw fa-table"></i>反馈意见</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
