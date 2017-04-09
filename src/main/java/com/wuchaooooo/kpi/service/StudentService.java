@@ -20,6 +20,8 @@ public interface StudentService {
 
     VStudent getStudentByUserIdAndPassword(String userId, String password);
 
+    List<VStudent> listStudent();
+
     void updatePersonalInfo(VStudent vStudent);
 
     List<VStudent> getClassmates(String className);
@@ -28,7 +30,7 @@ public interface StudentService {
 
     List<VStudentFile> getStudentFilesByStudentId(Integer studentId);
 
-    VStudentFile getSthdentFileByFileId(Integer fileId);
+    VStudentFile getStudentFileByFileId(Integer fileId);
 
     void downloadStudentFile(Integer fileId, HttpServletRequest request, HttpServletResponse response) throws IOException;
 

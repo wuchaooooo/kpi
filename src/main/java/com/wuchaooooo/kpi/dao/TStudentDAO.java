@@ -23,6 +23,9 @@ public interface TStudentDAO {
     @Select("select * from " + TABLE_NAME + " where `userId` = #{userId}")
     PStudent getStudentByUserId(@Param("userId") String userId);
 
+    @Select("select * from " + TABLE_NAME)
+    List<PStudent> listStudent();
+
     @Select("select * from " + TABLE_NAME + " where `userId` = #{userId} and `password` = #{password}")
     PStudent getStudentByUserIdAndPassword(@Param("userId") String userId, @Param("password") String password);
 
@@ -31,4 +34,6 @@ public interface TStudentDAO {
 
     @Select("select * from " + TABLE_NAME + " where `className` = #{className}")
     List<PStudent> getClassmates(@Param("className") String className);
+
+
 }

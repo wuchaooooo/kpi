@@ -55,7 +55,7 @@ public class IndexServiceImpl implements IndexService {
         } else if (oldPassword.equals(newPassword)) {
             return "您两次输入的新密码不一致，请重新输入";
         }
-        indexDao.changePassword(vLoginUser.getRole(), newPassword, vLoginUser.getUserId());
+        indexDao.changePassword("t_" + vLoginUser.getRole(), newPassword, vLoginUser.getUserId());
         return "密码更新成功";
     }
 }

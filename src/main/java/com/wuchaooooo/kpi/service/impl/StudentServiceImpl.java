@@ -1,9 +1,11 @@
 package com.wuchaooooo.kpi.service.impl;
 
 import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.MimeUtility;
+import com.wuchaooooo.kpi.dao.TClazzDAO;
 import com.wuchaooooo.kpi.dao.TFeedbackDAO;
 import com.wuchaooooo.kpi.dao.TStudentDAO;
 import com.wuchaooooo.kpi.dao.TStudentFileDAO;
+import com.wuchaooooo.kpi.javabean.po.PClazz;
 import com.wuchaooooo.kpi.javabean.po.PFeedback;
 import com.wuchaooooo.kpi.javabean.po.PStudent;
 import com.wuchaooooo.kpi.javabean.po.PStudentFile;
@@ -41,6 +43,8 @@ public class StudentServiceImpl implements StudentService{
     private TStudentFileDAO studentFileDAO;
     @Autowired
     private TFeedbackDAO feedbackDAO;
+    @Autowired
+    private TClazzDAO clazzDAO;
 
     @Override
     public VStudent getStudentByUserId(String userId) {
@@ -56,6 +60,21 @@ public class StudentServiceImpl implements StudentService{
         VStudent vStudent = new VStudent();
         BeanUtils.copyProperties(pStudent, vStudent);
         return vStudent;
+    }
+
+    @Override
+    public List<VStudent> listStudent() {
+        List<PStudent> pStudentList = studentDao.listStudent();
+        List<VStudent> vStudentList = new ArrayList<VStudent>();
+        for (PStudent pStudent : pStudentList) {
+            VStudent vStudent = new VStudent();
+            BeanUtils.copyProperties(pStudent, vStudent);
+            String className = pStudent.getClassName();
+            PClazz pClazz = clazzDAO.getClazzByClazzName(className);
+            vStudent.setTeacher(pClazz.getTeacher());
+            vStudentList.add(vStudent);
+        }
+        return vStudentList;
     }
 
     @Override
@@ -140,7 +159,7 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public VStudentFile getSthdentFileByFileId(Integer fileId) {
+    public VStudentFile getStudentFileByFileId(Integer fileId) {
         PStudentFile pStudentFile = studentFileDAO.getSthdentFileByFileId(fileId);
         VStudentFile vStudentFile = new VStudentFile();
         BeanUtils.copyProperties(pStudentFile, vStudentFile);
@@ -149,7 +168,7 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public void downloadStudentFile(Integer fileId, HttpServletRequest request, HttpServletResponse response) throws IOException{
-        VStudentFile vStudentFile = getSthdentFileByFileId(fileId);
+        VStudentFile vStudentFile = getStudentFileByFileId(fileId);
         String fileName = vStudentFile.getName();
         String path = vStudentFile.getPath();
 

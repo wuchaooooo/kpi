@@ -2,13 +2,13 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
         <li>
-            <a href="personal-info-teacher.vm"><i class="fa fa-fw fa-table"></i>个人信息</a>
+            <a href="/teacher/personalinfo"><i class="fa fa-fw fa-table"></i>个人信息</a>
         </li>
         <li>
-            <a href="password-teacher.vm"><i class="fa fa-fw fa-table"></i>修改密码</a>
+            <a href="/teacher/modifypwd"><i class="fa fa-fw fa-table"></i>修改密码</a>
         </li>
         <li>
-            <a href="info-teacher.vm"><i class="fa fa-fw fa-table"></i>学生信息</a>
+            <a href="/teacher/studentsinfo"><i class="fa fa-fw fa-table"></i>学生信息</a>
         </li>
         <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#score"><i class="fa fa-fw fa-arrows-v"></i> 学生打分

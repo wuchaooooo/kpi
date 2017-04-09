@@ -5,7 +5,4 @@ package com.wuchaooooo.kpi.javabean.vo;
  */
 public class VTeacher extends VUser{
 
-    public VTeacher() {
-    }
-
 }

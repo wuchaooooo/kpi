@@ -118,6 +118,8 @@ public class StudentController {
             @ModelAttribute("student") VStudent vStudent,
             Map<String, Object> model) {
         model.put("role", "student");
+        List<VStudent> vStudentList = studentService.listStudent();
+        model.put("students", vStudentList);
         return "student/graduate-student";
     }
 

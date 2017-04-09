@@ -9,29 +9,52 @@
 <!-- /.row -->
 
 <div class="row">
-    <div class="col-lg-6">
-
-        <form role="form">
+    <form id="inputForm" role="form">
+        <div class="col-lg-4">
 
             <div class="form-group">
-                <label>用户ID</label>
-                <input class="form-control" value="陈栋">
+                <label>工号<span style="font-size:10px;color:#cc000e;margin-left:5px;">(只读)</span></label>
+                <input name="userId" class="form-control" value="$!{teacher.userId}" readonly>
             </div>
 
             <div class="form-group">
-                <label>邮箱</label>
-                <input class="form-control" placeholder="请输入您的邮箱">
+                <label>姓名<span style="font-size:10px;color:#cc000e;margin-left:5px;">(只读)</span></label>
+                <input name="realName" class="form-control" value="$!{teacher.realName}" readonly>
             </div>
 
             <div class="form-group">
                 <label>电话</label>
-                <input class="form-control" placeholder="请输入您的电话">
+                <input name="mobile" class="form-control" placeholder="请输入您的电话" value="$!{teacher.mobile}">
             </div>
-            <button type="submit" class="btn btn-default">保存修改</button>
 
-        </form>
+            <div class="form-group">
+                <label>邮箱</label>
+                <input name="email" class="form-control" placeholder="请输入您的邮箱" value="$!{teacher.email}">
+            </div>
 
-    </div>
+        </div>
+        <div class="col-lg-4">
+
+            <button id="submit" type="button" class="btn btn-default float-r form-group">保存修改</button>
+        </div>
+    </form>
 </div>
 
-<script src="/js/admin.js"></script>
+<script>
+    $("#submit").click(function () {
+        var input = $("#inputForm").serialize();
+        $.ajax({
+            type: "PUT",
+            url: "/teacher/personalinfo",
+            data: input,
+            datatype: "json",
+            success: function (data) {
+                if (!data.success) {
+                    alert("用户信息更新失败");
+                } else {
+                    location.href = "/teacher/personalinfo";
+                }
+            }
+        });
+    });
+</script>
