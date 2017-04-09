@@ -83,6 +83,4 @@ public class IndexController {
         return "common/password";
     }
 
-
-
 }

@@ -23,4 +23,19 @@ public class TeacherServiceImpl implements TeacherService{
         BeanUtils.copyProperties(pTeacher, vTeacher);
         return vTeacher;
     }
+
+    @Override
+    public void updatePersonalInfo(VTeacher vTeacher) {
+        PTeacher pTeacher = new PTeacher();
+        BeanUtils.copyProperties(vTeacher, pTeacher);
+        teacherDao.updatePersonalInfo(pTeacher);
+    }
+
+    @Override
+    public VTeacher getTeacherByUserId(String userId) {
+        PTeacher pTeacher = teacherDao.getTeacherByUserId(userId);
+        VTeacher vTeacher = new VTeacher();
+        BeanUtils.copyProperties(pTeacher, vTeacher);
+        return vTeacher;
+    }
 }

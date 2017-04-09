@@ -7,4 +7,8 @@ import com.wuchaooooo.kpi.javabean.vo.VTeacher;
  */
 public interface TeacherService {
     VTeacher getTeacherByUserIdAndPassword(String userId, String password);
+
+    void updatePersonalInfo(VTeacher vTeacher);
+
+    VTeacher getTeacherByUserId(String userId);
 }
