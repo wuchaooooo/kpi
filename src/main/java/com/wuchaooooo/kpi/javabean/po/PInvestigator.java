@@ -7,6 +7,8 @@ import lombok.Data;
  */
 @Data
 public class PInvestigator {
-
+    private String realName;
+    private String mobile;
+    private String email;
 
 }

@@ -7,5 +7,7 @@ import lombok.Data;
  */
 @Data
 public class PAdmin {
-
+    private String realName;
+    private String mobile;
+    private String email;
 }

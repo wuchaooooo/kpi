@@ -37,7 +37,7 @@
 <body id="login">
 <div id="login-form">
     <h3>轻课学员KPI管理系统</h3>
-    <form id="loginConfirm" action="/loginConfirm" method="post" class="form-horizontal" role="form">
+    <form id="loginConfirm" action="/login" method="post" class="form-horizontal" role="form">
 
         <div class="form-group">
             <span>$!{error}</span>
@@ -45,7 +45,7 @@
         <div class="form-group">
             <label for="userId" class="col-lg-2 control-label">用户ID</label>
             <div class="col-lg-8">
-                <input type="text" id="userId" name="userId" class="form-control">
+                <input type="text" id="userName" name="userName" class="form-control">
             </div>
         </div>
         <br/>

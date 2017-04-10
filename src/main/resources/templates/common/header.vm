@@ -6,17 +6,17 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="index-student.vm">KPI管理系统</a>
                 <span>(
-                    #if($!{loginUser.role} eq "student")
+                    #if($role eq "student")
                         学员
-                    #elseif($!{loginUser.role} eq "headTeacher")
+                    #elseif($role eq "headTeacher")
                         班主任
-                    #elseif($!{loginUser.role} eq "teacher")
+                    #elseif($role eq "teacher")
                         驻班教师
-                    #elseif($!{loginUser.role} eq "interviewer")
+                    #elseif($role eq "interviewer")
                         面试官
-                    #elseif($!{loginUser.role} eq "investigator")
+                    #elseif($!role eq "investigator")
                         调查员
-                    #elseif($!{loginUser.role} eq "guider")
+                    #elseif($!role eq "guider")
                         就业指导老师
                     #end )
             </span>

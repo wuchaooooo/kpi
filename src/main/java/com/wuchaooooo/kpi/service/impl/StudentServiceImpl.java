@@ -5,14 +5,12 @@ import com.wuchaooooo.kpi.dao.TClazzDAO;
 import com.wuchaooooo.kpi.dao.TFeedbackDAO;
 import com.wuchaooooo.kpi.dao.TStudentDAO;
 import com.wuchaooooo.kpi.dao.TStudentFileDAO;
-import com.wuchaooooo.kpi.javabean.po.PClazz;
-import com.wuchaooooo.kpi.javabean.po.PFeedback;
-import com.wuchaooooo.kpi.javabean.po.PStudent;
-import com.wuchaooooo.kpi.javabean.po.PStudentFile;
+import com.wuchaooooo.kpi.javabean.po.*;
 import com.wuchaooooo.kpi.javabean.vo.VFeedback;
 import com.wuchaooooo.kpi.javabean.vo.VStudent;
 import com.wuchaooooo.kpi.javabean.vo.VStudentFile;
 import com.wuchaooooo.kpi.service.StudentService;
+import com.wuchaooooo.kpi.utils.AuthUtils;
 import com.wuchaooooo.kpi.utils.TimeUtil;
 import eu.bitwalker.useragentutils.UserAgent;
 import org.slf4j.Logger;
@@ -37,6 +35,7 @@ import java.util.List;
  */
 @Service
 public class StudentServiceImpl implements StudentService{
+
     @Autowired
     private TStudentDAO studentDao;
     @Autowired
@@ -47,16 +46,17 @@ public class StudentServiceImpl implements StudentService{
     private TClazzDAO clazzDAO;
 
     @Override
-    public VStudent getStudentByUserId(String userId) {
-        PStudent pStudent = studentDao.getStudentByUserId(userId);
+    public VStudent getStudent(String userName) {
+        PStudent pStudent = studentDao.getStudentByUserName(userName);
         VStudent vStudent = new VStudent();
         BeanUtils.copyProperties(pStudent, vStudent);
         return vStudent;
     }
 
     @Override
-    public VStudent getStudentByUserIdAndPassword(String userId, String password) {
-        PStudent pStudent = studentDao.getStudentByUserIdAndPassword(userId, password);
+    public VStudent getStudent(String userId, String password) {
+        PUser pUser = AuthUtils.getAuthUser();
+        PStudent pStudent = studentDao.getStudentByUserName(pUser.getUserName());
         VStudent vStudent = new VStudent();
         BeanUtils.copyProperties(pStudent, vStudent);
         return vStudent;
@@ -145,7 +145,7 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public List<VStudentFile> getStudentFilesByStudentId(Integer studentId) {
+    public List<VStudentFile> listStudentFile(long studentId) {
         List<PStudentFile> studentFiles = studentFileDAO.getStudentFilesByStudentId(studentId);
         List<VStudentFile> vStudentFiles = new ArrayList<VStudentFile>();
         for (PStudentFile s : studentFiles) {
@@ -159,7 +159,7 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public VStudentFile getStudentFileByFileId(Integer fileId) {
+    public VStudentFile getStudentFile(long fileId) {
         PStudentFile pStudentFile = studentFileDAO.getSthdentFileByFileId(fileId);
         VStudentFile vStudentFile = new VStudentFile();
         BeanUtils.copyProperties(pStudentFile, vStudentFile);
@@ -168,7 +168,7 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public void downloadStudentFile(Integer fileId, HttpServletRequest request, HttpServletResponse response) throws IOException{
-        VStudentFile vStudentFile = getStudentFileByFileId(fileId);
+        VStudentFile vStudentFile = getStudentFile(fileId);
         String fileName = vStudentFile.getName();
         String path = vStudentFile.getPath();
 
@@ -207,7 +207,7 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public List<VFeedback> getFeedbacksByStudentId(Integer studentId) {
+    public List<VFeedback> listFeedback(long studentId) {
         List<PFeedback> pFeedbackList = feedbackDAO.getFeedbacksByStudentId(studentId);
         List<VFeedback> vFeedbackList = new ArrayList<VFeedback>();
         for (PFeedback p : pFeedbackList) {
@@ -221,7 +221,7 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public VFeedback getFeedbackById(Integer feedbackId) {
+    public VFeedback getFeedback(Integer feedbackId) {
         PFeedback pFeedback = feedbackDAO.getFeedbackById(feedbackId);
         VFeedback vFeedback = new VFeedback();
         BeanUtils.copyProperties(pFeedback, vFeedback);
@@ -229,14 +229,14 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public Integer insertFeedback(VFeedback vFeedback, VStudent vStudent) {
+    public long insertFeedback(VFeedback vFeedback, VStudent vStudent) {
         PFeedback pFeedback = new PFeedback();
         BeanUtils.copyProperties(vFeedback, pFeedback);
         Date date = new Date();
         pFeedback.setCreateTime(date);
         pFeedback.setModifyTime(date);
         pFeedback.setStudentId(vStudent.getId());
-        Integer feedbackId = feedbackDAO.insertFeedback(pFeedback);
+        long feedbackId = feedbackDAO.insertFeedback(pFeedback);
         return feedbackId;
     }
 

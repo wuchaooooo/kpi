@@ -9,8 +9,8 @@ import java.util.Date;
  */
 @Data
 public class PFeedback {
-    private Integer id;
-    private Integer studentId;
+    private long id;
+    private long studentId;
     private Date createTime;
     private Date modifyTime;
     private String type;

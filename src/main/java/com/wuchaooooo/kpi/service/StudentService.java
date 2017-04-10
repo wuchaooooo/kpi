@@ -16,9 +16,9 @@ import java.util.List;
  * Created by wuchaooooo on 26/11/2016.
  */
 public interface StudentService {
-    VStudent getStudentByUserId(String userId);
+    VStudent getStudent(String userName);
 
-    VStudent getStudentByUserIdAndPassword(String userId, String password);
+    VStudent getStudent(String userName, String password);
 
     List<VStudent> listStudent();
 
@@ -28,17 +28,17 @@ public interface StudentService {
 
     String insertStudentFile(VStudent vStudent, HttpSession session, MultipartFile file, String renameFile, Logger logger);
 
-    List<VStudentFile> getStudentFilesByStudentId(Integer studentId);
+    List<VStudentFile> listStudentFile(long studentId);
 
-    VStudentFile getStudentFileByFileId(Integer fileId);
+    VStudentFile getStudentFile(long fileId);
 
     void downloadStudentFile(Integer fileId, HttpServletRequest request, HttpServletResponse response) throws IOException;
 
-    List<VFeedback> getFeedbacksByStudentId(Integer studentId);
+    List<VFeedback> listFeedback(long studentId);
 
-    VFeedback getFeedbackById(Integer feedbackId);
+    VFeedback getFeedback(Integer feedbackId);
 
-    Integer insertFeedback(VFeedback vFeedback, VStudent vStudent);
+    long insertFeedback(VFeedback vFeedback, VStudent vStudent);
 
     void updateFeedback(VFeedback vFeedback);
 

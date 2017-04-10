@@ -7,7 +7,8 @@ import lombok.Data;
  */
 @Data
 public class VStudent extends VUser{
-    private static String a;
+    private String mobile;
+    private String email;
     private String school;
     private String major;
     private String employmentStatus;

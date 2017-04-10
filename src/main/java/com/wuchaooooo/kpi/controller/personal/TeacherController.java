@@ -1,12 +1,13 @@
 package com.wuchaooooo.kpi.controller.personal;
 
 import com.wuchaooooo.kpi.javabean.AjaxRequestResult;
-import com.wuchaooooo.kpi.javabean.vo.VLoginUser;
+import com.wuchaooooo.kpi.javabean.po.PUser;
 import com.wuchaooooo.kpi.javabean.vo.VStudent;
 import com.wuchaooooo.kpi.javabean.vo.VTeacher;
 import com.wuchaooooo.kpi.service.ClazzService;
 import com.wuchaooooo.kpi.service.StudentService;
 import com.wuchaooooo.kpi.service.TeacherService;
+import com.wuchaooooo.kpi.utils.AuthUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -38,10 +39,7 @@ public class TeacherController {
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(HttpSession session, Map<String, Object> model) {
-        VLoginUser vLoginUser = (VLoginUser) session.getAttribute("loginUser");
-        String userId = vLoginUser.getUserId();
-        String password = vLoginUser.getPassword();
-        VTeacher vTeacher = teacherService.getTeacherByUserIdAndPassword(userId, password);
+        VTeacher vTeacher = getTeacher();
         model.put("role", "teacher");
         model.put("teacher", vTeacher);
         return "common/index";
@@ -63,7 +61,7 @@ public class TeacherController {
         AjaxRequestResult ajaxRequestResult = new AjaxRequestResult();
         teacherService.updatePersonalInfo(vTeacher);
         ajaxRequestResult.setSuccess(true);
-        VTeacher vTeacher1 = teacherService.getTeacherByUserId(vTeacher.getUserId());
+        VTeacher vTeacher1 = teacherService.getTeacher(vTeacher.getUserName());
         model.put("teacher", vTeacher1);
         model.put("role", "teacher");
         return ajaxRequestResult;
@@ -83,5 +81,13 @@ public class TeacherController {
             @RequestParam(value = "type") String type,
             Map<String, Object> model) {
         return "teacher/score-teacher";
+    }
+
+    public VTeacher getTeacher() {
+        PUser user = AuthUtils.getAuthUser();
+        String userName = user.getUserName();
+        String password = user.getPassword();
+        VTeacher vTeacher = teacherService.getTeacher(userName, password);
+        return vTeacher;
     }
 }

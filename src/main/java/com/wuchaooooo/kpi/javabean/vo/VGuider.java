@@ -1,11 +1,13 @@
 package com.wuchaooooo.kpi.javabean.vo;
 
+import lombok.Data;
+
 /**
  * Created by wuchaooooo on 30/11/2016.
  */
+@Data
 public class VGuider extends VUser{
-
-    public VGuider() {
-    }
+    private String mobile;
+    private String email;
 
 }

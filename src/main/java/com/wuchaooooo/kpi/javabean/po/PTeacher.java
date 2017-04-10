@@ -7,5 +7,7 @@ import lombok.Data;
  */
 @Data
 public class PTeacher extends PUser{
-
+    private String realName;
+    private String mobile;
+    private String email;
 }

@@ -7,10 +7,8 @@ import lombok.Data;
  */
 @Data
 public class PUser {
-    private Integer id;
-    private String userId;
+    private long id;
+    private String userName;
     private String password;
-    private String realName;
-    private String mobile;
-    private String email;
+    private String role;
 }

@@ -7,6 +7,9 @@ import lombok.Data;
  */
 @Data
 public class PStudent extends PUser{
+    private String realName;
+    private String mobile;
+    private String email;
     private String school;
     private String major;
     private String employmentStatus;

@@ -47,44 +47,46 @@
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-money fa-fw"></i>反馈记录</h3>
+            信息详情
         </div>
+        <!-- /.panel-heading -->
         <div class="panel-body">
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped" id="feedback-table">
-                    <thead>
+            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                <thead>
+                <tr>
+                    <th class="date sortable">创建日期 <i class="fa fa-sort"></i></th>
+                    <th class="date sortable">修改日期 <i class="fa fa-sort"></i></th>
+                    <th class="type sortable">反馈类型<i class="fa fa-sort"></i></th>
+                    <th class="action"></th>
+                </tr>
+                </thead>
+                <tbody>
+                    #foreach($feedback in $feedbacks)
                     <tr>
-                        <th class="date sortable"><a href="#">创建日期</a><i class="fa fa-sort"></i></th>
-                        <th class="date sortable"><a href="#">修改日期</a><i class="fa fa-sort"></i></th>
-                        <th class="type sortable"><a href="#">反馈类型</a><i class="fa fa-sort"></i></th>
-                        <th class="action"></th>
+                        <td>$!date.format('yyyy-MM-dd', ${feedback.createTime})</td>
+                        <td class="date">$date.format('yyyy-MM-dd', ${feedback.modifyTime})</td>
+                        <td class="name">$!{feedback.type}</td>
+                        <td>
+                            <button id="feedbackInfo$!{feedback.id}"
+                                    onclick="feedbackDetail($!{feedback.id})" type="button"
+                                    class="btn btn-primary btn-sm">
+                                详情
+                            </button>
+                            <button id="feedbackInfo$!{feedback.id}"
+                                    onclick="deleteFeedback($!{feedback.id})" type="button"
+                                    class="btn btn-danger btn-sm">
+                                删除
+                            </button>
+                        </td>
                     </tr>
-                    </thead>
-                    <tbody>
-                        #foreach($feedback in $feedbacks)
-                        <tr>
-                            <td class="date">$date.format('yyyy-MM-dd', $feedback.ModifyTime)</td>
-                            <td class="date">$date.format('yyyy-MM-dd', $feedback.ModifyTime)</td>
-                            <td class="name">$!{feedback.type}</td>
-                            <td>
-                                <button id="feedbackInfo$!{feedback.id}"
-                                        onclick="feedbackDetail($!{feedback.id})" type="button"
-                                        class="btn btn-primary btn-sm">
-                                    详情
-                                </button>
-                                <button id="feedbackInfo$!{feedback.id}"
-                                        onclick="deleteFeedback($!{feedback.id})" type="button"
-                                        class="btn btn-danger btn-sm">
-                                    删除
-                                </button>
-                            </td>
-                        </tr>
-                        #end
-                    </tbody>
-                </table>
-            </div>
+                    #end
+                </tbody>
+            </table>
+            <!-- /.table-responsive -->
         </div>
+        <!-- /.panel-body -->
     </div>
+    <!-- /.panel -->
 </div>
 
 <!-- Modal -->
@@ -97,6 +99,12 @@
 </div>
 
 <script>
+    $(document).ready(function () {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+    });
+
     function feedbackDetail(feedbackId) {
         $('#myModal').modal({
             remote: "/student/feedbackmodal?feedbackId=" + feedbackId

@@ -21,8 +21,8 @@ public interface TStudentFileDAO {
     void insertStudentFile(PStudentFile pStudentFile);
 
     @Select("select * from " + TABLE_NAME + " where `studentId` = #{studentId}")
-    List<PStudentFile> getStudentFilesByStudentId(@Param("studentId") Integer studentId);
+    List<PStudentFile> getStudentFilesByStudentId(@Param("studentId") long studentId);
 
     @Select("select * from " + TABLE_NAME + " where id = #{fileId}")
-    PStudentFile getSthdentFileByFileId(@Param("fileId") Integer fileId);
+    PStudentFile getSthdentFileByFileId(@Param("fileId") long fileId);
 }

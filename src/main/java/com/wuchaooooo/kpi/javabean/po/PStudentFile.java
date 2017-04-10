@@ -9,8 +9,8 @@ import java.util.Date;
  */
 @Data
 public class PStudentFile {
-    private Integer id;
-    private Integer studentId;
+    private long id;
+    private long studentId;
     private String name;
     private String type;
     private String path;

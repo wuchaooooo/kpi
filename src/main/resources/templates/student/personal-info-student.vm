@@ -14,7 +14,7 @@
 
             <div class="form-group">
                 <label>学号<span style="font-size:10px;color:#cc000e;margin-left:5px;">(只读)</span></label>
-                <input name="userId" class="form-control" value="$!{student.userId}" readonly>
+                <input name="userId" class="form-control" value="$!{student.userName}" readonly>
             </div>
 
             <div class="form-group">

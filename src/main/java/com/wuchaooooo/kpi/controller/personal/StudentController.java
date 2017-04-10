@@ -1,11 +1,12 @@
 package com.wuchaooooo.kpi.controller.personal;
 
 import com.wuchaooooo.kpi.javabean.AjaxRequestResult;
+import com.wuchaooooo.kpi.javabean.po.PUser;
 import com.wuchaooooo.kpi.javabean.vo.VFeedback;
-import com.wuchaooooo.kpi.javabean.vo.VLoginUser;
 import com.wuchaooooo.kpi.javabean.vo.VStudent;
 import com.wuchaooooo.kpi.javabean.vo.VStudentFile;
 import com.wuchaooooo.kpi.service.StudentService;
+import com.wuchaooooo.kpi.utils.AuthUtils;
 import com.wuchaooooo.kpi.utils.TimeUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +29,6 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(value = "/student")
-@SessionAttributes({"student"})
 public class StudentController {
 
     private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
@@ -39,20 +39,18 @@ public class StudentController {
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(
-            HttpSession session,
             Map<String, Object> model) {
-        VLoginUser vLoginUser = (VLoginUser) session.getAttribute("loginUser");
-        String userId = vLoginUser.getUserId();
-        String password = vLoginUser.getPassword();
-        VStudent vStudent = studentService.getStudentByUserIdAndPassword(userId, password);
+        VStudent vStudent = getStudent();
         model.put("role", "student");
         model.put("student", vStudent);
         return "common/index";
     }
 
     @RequestMapping(value = "/personalinfo", method = RequestMethod.GET)
-    public String personalInfo(HttpSession session, Map<String, Object> model) {
+    public String personalInfo(Map<String, Object> model) {
+        VStudent vStudent = getStudent();
         model.put("role", "student");
+        model.put("student", vStudent);
         return "student/personal-info-student";
 
 //        springmvc默认是转发到相应的模板页面，如果要重定向网址，需要写下述代码
@@ -62,22 +60,23 @@ public class StudentController {
     @RequestMapping(value = "/personalinfo", method = RequestMethod.PUT)
     @ResponseBody
     public AjaxRequestResult updatePersonalInfo(
-            @ModelAttribute VStudent vStudent,
             Map<String, Object> model) {
+        VStudent vStudent = getStudent();
+        model.put("role", "student");
+        model.put("student", vStudent);
         AjaxRequestResult ajaxRequestResult = new AjaxRequestResult();
         studentService.updatePersonalInfo(vStudent);
         ajaxRequestResult.setSuccess(true);
-        VStudent vStudent1 = studentService.getStudentByUserId(vStudent.getUserId());
-        model.put("student", vStudent1);
-        model.put("role", "student");
         return ajaxRequestResult;
     }
 
     @RequestMapping(value = "/uploadfile", method = RequestMethod.GET)
     public String uploadFile(
-            @ModelAttribute("student") VStudent vStudent,
             Map<String, Object> model) {
-        List<VStudentFile> vStudentFiles = studentService.getStudentFilesByStudentId(vStudent.getId());
+        VStudent vStudent = getStudent();
+        model.put("role", "student");
+        model.put("student", vStudent);
+        List<VStudentFile> vStudentFiles = studentService.listStudentFile(vStudent.getId());
         model.put("studentFiles", vStudentFiles);
         model.put("role", "student");
         return "student/upload-student";
@@ -85,13 +84,17 @@ public class StudentController {
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public String upload(
-            @ModelAttribute("student") VStudent vStudent,
             @RequestParam("file") MultipartFile file,
             @RequestParam(value = "renameFile", required = false) String renameFile,
             Map<String, Object> model,
             HttpSession session) {
-        String returnLocation = studentService.insertStudentFile(vStudent, session, file, renameFile, logger);
+        VStudent vStudent = getStudent();
         model.put("role", "student");
+        model.put("student", vStudent);
+        String returnLocation = studentService.insertStudentFile(vStudent, session, file, renameFile, logger);
+        VStudent vStudent1 = getStudent();
+        model.put("role", "student");
+        model.put("student", vStudent1);
         return returnLocation;
     }
 
@@ -105,18 +108,20 @@ public class StudentController {
 
     @RequestMapping(value = "/classmates", method = RequestMethod.GET)
     public String classmates(
-            @ModelAttribute("student") VStudent vStudent,
             Map<String, Object> model) {
+        VStudent vStudent = getStudent();
+        model.put("role", "student");
+        model.put("student", vStudent);
         List<VStudent> students = studentService.getClassmates(vStudent.getClassName());
         model.put("classmates", students);
-        model.put("role", "student");
         return "student/classmate-student";
     }
 
     @RequestMapping(value = "/graduate", method = RequestMethod.GET)
     public String graduate(
-            @ModelAttribute("student") VStudent vStudent,
             Map<String, Object> model) {
+        VStudent vStudent = getStudent();
+        model.put("student", vStudent);
         model.put("role", "student");
         List<VStudent> vStudentList = studentService.listStudent();
         model.put("students", vStudentList);
@@ -125,30 +130,30 @@ public class StudentController {
 
     @RequestMapping(value = "/feedback", method = RequestMethod.GET)
     public String feedback(
-            @ModelAttribute("student") VStudent vStudent,
             Map<String, Object> model) {
+        VStudent vStudent = getStudent();
+        model.put("role", "student");
+        model.put("student", vStudent);
+
         String dateTime = TimeUtil.dateFormat(new Date());
         model.put("date", dateTime);
-        List<VFeedback> vFeedbacks = studentService.getFeedbacksByStudentId(vStudent.getId());
+        List<VFeedback> vFeedbacks = studentService.listFeedback(vStudent.getId());
         model.put("feedbacks", vFeedbacks);
-        model.put("role", "student");
         return "student/feedback-student";
     }
 
     @RequestMapping(value = "/feedback", method = RequestMethod.POST)
     public String newFeedback(
-            @ModelAttribute("student") VStudent vStudent,
-            @ModelAttribute VFeedback vFeedback,
-            Map<String, Object> model) {
+            @ModelAttribute VFeedback vFeedback) {
+        VStudent vStudent = getStudent();
         studentService.insertFeedback(vFeedback, vStudent);
-        model.put("role", "student");
         return "redirect:/student/feedback";
     }
 
     @RequestMapping(value = "/feedback", method = RequestMethod.PUT)
     @ResponseBody
     public AjaxRequestResult updateFeedback(
-            @RequestParam("feedbackId") Integer feedbackId,
+            @RequestParam("feedbackId") long feedbackId,
             @ModelAttribute VFeedback vFeedback) {
         AjaxRequestResult ajaxRequestResult = new AjaxRequestResult();
         try {
@@ -180,9 +185,17 @@ public class StudentController {
     public String feedbackModal(
             @RequestParam("feedbackId") Integer feedbackId,
             Map<String, Object> model) {
-        VFeedback vFeedback = studentService.getFeedbackById(feedbackId);
+        VFeedback vFeedback = studentService.getFeedback(feedbackId);
         model.put("feedback", vFeedback);
         return "/student/feedback-modal-student";
+    }
+
+    public VStudent getStudent() {
+        PUser user = AuthUtils.getAuthUser();
+        String userName = user.getUserName();
+        String password = user.getPassword();
+        VStudent vStudent = studentService.getStudent(userName, password);
+        return vStudent;
     }
 
 

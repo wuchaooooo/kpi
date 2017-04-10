@@ -7,6 +7,8 @@ import lombok.Data;
  */
 @Data
 public class PGuider {
-
+    private String realName;
+    private String mobile;
+    private String email;
 
 }

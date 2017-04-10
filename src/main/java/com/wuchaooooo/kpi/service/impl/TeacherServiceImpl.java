@@ -17,7 +17,7 @@ public class TeacherServiceImpl implements TeacherService{
     private TTeacherDAO teacherDao;
 
     @Override
-    public VTeacher getTeacherByUserIdAndPassword(String userId, String password) {
+    public VTeacher getTeacher(String userId, String password) {
         PTeacher pTeacher = teacherDao.getTeacherByUserIdAndPassword(userId, password);
         VTeacher vTeacher = new VTeacher();
         BeanUtils.copyProperties(pTeacher, vTeacher);
@@ -32,8 +32,8 @@ public class TeacherServiceImpl implements TeacherService{
     }
 
     @Override
-    public VTeacher getTeacherByUserId(String userId) {
-        PTeacher pTeacher = teacherDao.getTeacherByUserId(userId);
+    public VTeacher getTeacher(String userName) {
+        PTeacher pTeacher = teacherDao.getTeacherByUserId(userName);
         VTeacher vTeacher = new VTeacher();
         BeanUtils.copyProperties(pTeacher, vTeacher);
         return vTeacher;
