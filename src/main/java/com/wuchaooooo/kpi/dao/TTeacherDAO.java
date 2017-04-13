@@ -13,15 +13,12 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 public interface TTeacherDAO {
-    static final String TABLE_NAME = "t_teacher";
-
-    @Select("select * from " + TABLE_NAME + " where userId = #{userId} and password = #{password}")
-    PTeacher getTeacherByUserIdAndPassword(@Param("userId") String userId, @Param("password") String password);
+    String TABLE_NAME = "t_teacher";
 
     @Update("update " + TABLE_NAME + " set `mobile` = #{mobile}, `email` = #{email}")
     void updatePersonalInfo(PTeacher pTeacher);
 
-    @Select("select * from " + TABLE_NAME + " where userId = #{userId}")
-    PTeacher getTeacherByUserId(@Param("userId") String userId);
+    @Select("select * from " + TABLE_NAME + " where `userName` = #{userName}")
+    PTeacher getTeacherByUserName(@Param("userName") String userName);
 
 }

@@ -1,3 +1,4 @@
+#set($role = $authUtils.getAuthUser().role)
 <header>
     <div id="wrapper">
         <!-- Navigation -->
@@ -25,7 +26,7 @@
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                            class="fa fa-user"></i> $!{loginUser.realName} <b class="caret"></b></a>
+                            class="fa fa-user"></i>  <b class="caret"></b>$authUtils.getAuthUserDetail().realName</a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="/$!{loginUser.role}/personalInfo"><i class="fa fa-fw fa-user"></i>个人信息</a>
@@ -40,17 +41,17 @@
 
 
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            #if($role eq "student")
+            #if($role == "student")
                 #parse('student/sidebar-student.vm')
-            #elseif($role eq "headTeacher")
+            #elseif($role == "headTeacher")
                 #parse('headTeacher/sidebar-headTeacher.vm')
-            #elseif($role eq "teacher")
+            #elseif($role == "teacher")
                 #parse('teacher/sidebar-teacher.vm')
-            #elseif($role eq "interviewer")
+            #elseif($role == "interviewer")
                 #parse('interviewer/sidebar-interviewer.vm')
-            #elseif($role eq "investigator")
+            #elseif($role == "investigator")
                 #parse('investigator/sidebar-investigator.vm')
-            #elseif($role eq "guider")
+            #elseif($role == "guider")
                 #parse('guider/sidebar-guider.vm')
             #end
         </nav>

@@ -45,7 +45,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         //密码匹配验证
         if (passwordEncoder().matches(password, user.getPassword())) {
             Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
-            return new UsernamePasswordAuthenticationToken(pUser, password, authorities);
+            return new UsernamePasswordAuthenticationToken(pUser, "password", authorities);
         }
         throw new BadCredentialsException("Wrong password.");
     }

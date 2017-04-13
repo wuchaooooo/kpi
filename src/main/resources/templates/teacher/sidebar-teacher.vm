@@ -15,7 +15,7 @@
                 <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="score" class="collapse" style="">
                 <li>
-                    <a href="score-teacher.vm?cate=form-daily">日常表现</a>
+                    <a href="/teacher/score/daily">日常表现</a>
                 </li>
                 <li>
                     <a href="score-teacher.vm?cate=form-knowledge">学习效果</a>
@@ -29,6 +29,21 @@
                 <li>
                     <a href="score-teacher.vm?cate=form-project">商业项目</a>
                 </li>
+##                <li>
+##                    <a href="score-teacher.vm?cate=form-daily">日常表现</a>
+##                </li>
+##                <li>
+##                    <a href="score-teacher.vm?cate=form-knowledge">学习效果</a>
+##                </li>
+##                <li>
+##                    <a href="score-teacher.vm?cate=form-notes">学习笔记</a>
+##                </li>
+##                <li>
+##                    <a href="score-teacher.vm?cate=form-interview">面试能力</a>
+##                </li>
+##                <li>
+##                    <a href="score-teacher.vm?cate=form-project">商业项目</a>
+##                </li>
             </ul>
         </li>
         <li>

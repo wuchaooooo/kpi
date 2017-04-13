@@ -7,5 +7,4 @@ import com.wuchaooooo.kpi.javabean.vo.VPassword;
  * Created by wuchaooooo on 26/11/2016.
  */
 public interface IndexService {
-    String changePassword(PUser pUser, VPassword vPassword);
 }

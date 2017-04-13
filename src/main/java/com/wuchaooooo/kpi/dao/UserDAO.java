@@ -19,6 +19,6 @@ public interface UserDAO {
     PUser getUserByUserNameAndPassword(@Param("userName") String userName, @Param("password") String password);
 
     @Update("update " + TABLE_NAME +" set password = #{password} where userName = #{userName}")
-    void changePassword(@Param("password") String password, @Param("userName") String userName);
+    int modifyPassword(@Param("password") String password, @Param("userName") String userName);
 
 }

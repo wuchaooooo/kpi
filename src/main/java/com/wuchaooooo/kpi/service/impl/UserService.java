@@ -22,5 +22,9 @@ public class UserService {
     public PUser getUser(String userName, String password) {
         return userDAO.getUserByUserNameAndPassword(userName, password);
     }
+
+    public int modifyPassword(String password, String userName) {
+        return userDAO.modifyPassword(password, userName);
+    }
     
 }

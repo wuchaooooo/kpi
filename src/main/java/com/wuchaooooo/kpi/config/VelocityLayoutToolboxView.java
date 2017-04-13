@@ -13,9 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Collection;
 import java.util.Map;
 
-public class VelocityLayoutToolboxView extends VelocityLayoutView
+public class VelocityLayoutToolboxView extends VelocityLayoutView {
 
-{
 	private VelocityLayoutToolboxView() {
 		this.setLayoutUrl("layout/layout.vm");
 		this.setToolboxConfigLocation("classpath:toolbox.xml");

@@ -3,10 +3,12 @@ package com.wuchaooooo.kpi.controller.common;
 import com.wuchaooooo.kpi.javabean.po.PUser;
 import com.wuchaooooo.kpi.javabean.vo.VPassword;
 import com.wuchaooooo.kpi.service.IndexService;
+import com.wuchaooooo.kpi.service.impl.CustomUserDetailsService;
 import com.wuchaooooo.kpi.service.impl.UserService;
 import com.wuchaooooo.kpi.utils.AuthUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,12 +21,12 @@ import java.util.Map;
  */
 @Controller
 public class IndexController {
-    @Autowired
-    @Qualifier(value = "indexServiceImpl")
-    private IndexService indexService;
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private CustomUserDetailsService customUserDetailsService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(
@@ -41,13 +43,12 @@ public class IndexController {
             @PathVariable("role") String role,
             @ModelAttribute VPassword vPassword,
             Map<String, Object> model,
-            HttpServletRequest request,
-            HttpSession session) {
+            HttpServletRequest request) {
         if (request.getMethod().equalsIgnoreCase("GET")) {
             model.put("role", role);
         } else {
             PUser pUser = AuthUtils.getAuthUser();
-            String message = indexService.changePassword(pUser, vPassword);
+            String message = customUserDetailsService.modifyPassword(pUser.getUserName(), vPassword.getOldPassword(), vPassword.getNewPassword(), vPassword.getCheckPassword());
             model.put("message", message);
             if (message.equals("密码更新成功")) {
                 pUser.setPassword(vPassword.getNewPassword());
