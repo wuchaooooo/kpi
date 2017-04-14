@@ -26,7 +26,7 @@ public interface TStudentDAO {
     @Select("select * from " + TABLE_NAME)
     List<PStudent> listStudent();
 
-    @Update("update " + TABLE_NAME + " set `mobile` = #{mobile}, `email` = #{email}, `school` = #{school}, `major` = #{major} where `userId` = #{userId}")
+    @Update("update " + TABLE_NAME + " set `mobile` = #{mobile}, `email` = #{email}, `school` = #{school}, `major` = #{major} where `userName` = #{userName}")
     void updatePersonalInfo(PStudent pStudent);
 
     @Select("select * from " + TABLE_NAME + " where `className` = #{className}")

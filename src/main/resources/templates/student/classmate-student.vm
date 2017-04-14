@@ -11,65 +11,74 @@
 <div class="row">
     <div class="col-lg-10">
 
-        <table class="table table-bordered table-striped" id="classmate-table">
-            <thead>
-            <tr>
-                <th class="stuID sortable"><a href="#">学号</a><i class="fa fa-sort"></i></th>
-                <th class="stuName sortable"><a href="#">姓名</a><i class="fa fa-sort"></i></th>
-                <th class="stuPhone sortable"><a href="#">电话</a><i class="fa fa-sort"></i></th>
-                <th class="stuEmail sortable"><a href="#">邮箱</a><i class="fa fa-sort"></i></th>
-                <th class="status sortable"><a href="#">就业情况</a><i class="fa fa-sort"></i></th>
-            </tr>
-            </thead>
-            <tbody>
-                #foreach($!{student} in $!{classmates})
-                <tr>
-                    <td class="stuID">$!{student.userId}</td>
-                    <td class="stuName">$!{student.realName}</td>
-                    <td class="stuEmail">$!{student.mobile}</td>
-                    <td class="stuPhone">$!{student.email}</td>
-                    <td class="status">$!{student.employmentStatus}</td>
-                </tr>
-                #end
-            ##                    <tr>
-            ##                        <td class="stuID">0823830</td>
-            ##                        <td class="stuName">张三</td>
-            ##                        <td class="stuEmail">zs@qk.com</td>
-            ##                        <td class="stuPhone">13900000000</td>
-            ##                        <td class="status">未就业</td>
-            ##                    </tr>
-            ##                    <tr>
-            ##                        <td class="stuID">0829384</td>
-            ##                        <td class="stuName">李四</td>
-            ##                        <td class="stuEmail">ls@qk.com</td>
-            ##                        <td class="stuPhone">13928470000</td>
-            ##                        <td class="status">未就业</td>
-            ##                    </tr>
-            ##                    <tr>
-            ##                        <td class="stuID">0823290</td>
-            ##                        <td class="stuName">王五</td>
-            ##                        <td class="stuEmail">ww@qk.com</td>
-            ##                        <td class="stuPhone">13934560000</td>
-            ##                        <td class="status">未就业</td>
-            ##                    </tr>
-            ##                    <tr>
-            ##                        <td class="stuID">0823830</td>
-            ##                        <td class="stuName">陈凯</td>
-            ##                        <td class="stuEmail">ck@qk.com</td>
-            ##                        <td class="stuPhone">15038200000</td>
-            ##                        <td class="status">未就业</td>
-            ##                    </tr>
-            ##                    <tr>
-            ##                        <td class="stuID">0829300</td>
-            ##                        <td class="stuName">王芳</td>
-            ##                        <td class="stuEmail">wf@qk.com</td>
-            ##                        <td class="stuPhone">15092800000</td>
-            ##                        <td class="status">未就业</td>
-            ##                    </tr>
-            </tbody>
-        </table>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                信息详情
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example" hidden>
+                    <thead>
+                    <tr>
+                        <th class="stuID sortable">学号</th>
+                        <th class="stuName sortable">姓名</th>
+                        <th class="stuPhone sortable">电话</th>
+                        <th class="stuEmail sortable">邮箱</th>
+                        <th class="status sortable">就业情况</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        #foreach($!{student} in $!{classmates})
+                        <tr>
+                            <td class="stuID">$!{student.userName}</td>
+                            <td class="stuName">$!{student.realName}</td>
+                            <td class="stuEmail">$!{student.mobile}</td>
+                            <td class="stuPhone">$!{student.email}</td>
+                            <td class="status">$!{student.employmentStatus}</td>
+                        </tr>
+                        #end
+                    </tbody>
+                </table>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
     </div>
 </div>
 
 </div>
 <!-- /.container-fluid -->
+
+<script>
+    $(document).ready(function () {
+        $('#dataTables-example').DataTable({
+            responsive: true,
+            language: {
+                "sProcessing": "处理中...",
+                "sLengthMenu": "显示 _MENU_ 项结果",
+                "sZeroRecords": "没有匹配结果",
+                "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+                "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                "sInfoPostFix": "",
+                "sSearch": "搜索:",
+                "sUrl": "",
+                "sEmptyTable": "表中数据为空",
+                "sLoadingRecords": "载入中...",
+                "sInfoThousands": ",",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "上页",
+                    "sNext": "下页",
+                    "sLast": "末页"
+                },
+                "oAria": {
+                    "sSortAscending": ": 以升序排列此列",
+                    "sSortDescending": ": 以降序排列此列"
+                }
+            }
+        });
+        $("#dataTables-example").removeAttr("hidden");
+    });
+</script>

@@ -54,7 +54,7 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public VStudent getStudent(String userId, String password) {
+    public VStudent getStudent(String userName, String password) {
         PUser pUser = AuthUtils.getAuthUser();
         PStudent pStudent = studentDao.getStudentByUserName(pUser.getUserName());
         VStudent vStudent = new VStudent();
@@ -79,7 +79,7 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public void updatePersonalInfo(VStudent vStudent) {
-        PStudent pStudent = new PStudent();
+        PStudent pStudent = studentDao.getStudentByUserName(vStudent.getUserName());
         BeanUtils.copyProperties(vStudent, pStudent);
         studentDao.updatePersonalInfo(pStudent);
     }
@@ -141,7 +141,7 @@ public class StudentServiceImpl implements StudentService{
                 session.setAttribute("uploadError", "文件上传失败，请稍后重试");
             }
         }
-        return "redirect:uploadFile";
+        return "redirect:uploadfile";
     }
 
     @Override

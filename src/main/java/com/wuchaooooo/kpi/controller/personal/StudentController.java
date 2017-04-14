@@ -3,6 +3,7 @@ package com.wuchaooooo.kpi.controller.personal;
 import com.wuchaooooo.kpi.javabean.AjaxRequestResult;
 import com.wuchaooooo.kpi.javabean.po.PUser;
 import com.wuchaooooo.kpi.javabean.vo.VFeedback;
+import com.wuchaooooo.kpi.javabean.vo.VScoreDaily;
 import com.wuchaooooo.kpi.javabean.vo.VStudent;
 import com.wuchaooooo.kpi.javabean.vo.VStudentFile;
 import com.wuchaooooo.kpi.service.StudentService;
@@ -10,6 +11,7 @@ import com.wuchaooooo.kpi.utils.AuthUtils;
 import com.wuchaooooo.kpi.utils.TimeUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -60,8 +62,8 @@ public class StudentController {
     @RequestMapping(value = "/personalinfo", method = RequestMethod.PUT)
     @ResponseBody
     public AjaxRequestResult updatePersonalInfo(
+            @ModelAttribute VStudent vStudent,
             Map<String, Object> model) {
-        VStudent vStudent = getStudent();
         model.put("role", "student");
         model.put("student", vStudent);
         AjaxRequestResult ajaxRequestResult = new AjaxRequestResult();

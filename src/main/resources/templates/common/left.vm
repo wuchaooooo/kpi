@@ -1,0 +1,98 @@
+#set($role = $authUtils.getAuthUser().role)
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="sidebar-search">
+                <div class="input-group custom-search-form">
+                    <input type="text" class="form-control" placeholder="Search...">
+                    <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                </div>
+                <!-- /input-group -->
+            </li>
+            <li>
+                <a href="/$role/index"><i class="fa fa-dashboard fa-fw"></i> 主页</a>
+            </li>
+            #if($role == "student")
+                <li>
+                    <a href="/student/personalinfo"><i class="fa fa-fw fa-table"></i>个人信息</a>
+                </li>
+                <li>
+                    <a href="/student/modifypwd"><i class="fa fa-fw fa-table"></i>修改密码</a>
+                </li>
+                <li>
+                    <a href="/student/uploadfile"><i class="fa fa-fw fa-table"></i>上传附件</a>
+                </li>
+                <li>
+                    <a href="/student/classmates"><i class="fa fa-fw fa-table"></i>班级同学</a>
+                </li>
+                <li>
+                    <a href="/student/graduate"><i class="fa fa-fw fa-table"></i>往届学生</a>
+                </li>
+                <li>
+                    <a href="/student/feedback"><i class="fa fa-fw fa-table"></i>反馈意见</a>
+                </li>
+            #end
+
+            #if($role == "teacher")
+                <li>
+                    <a href="/teacher/personalinfo"><i class="fa fa-fw fa-table"></i>个人信息</a>
+                </li>
+                <li>
+                    <a href="/teacher/modifypwd"><i class="fa fa-fw fa-table"></i>修改密码</a>
+                </li>
+                <li>
+                    <a href="/teacher/studentsinfo"><i class="fa fa-fw fa-table"></i>学生信息</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-tags fa-fw"></i> 学生打分<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/teacher/score/daily">日常表现</a>
+                        </li>
+                        <li>
+                            <a href="/teacher/score/knowledge">学习效果</a>
+                        </li>
+                        <li>
+                            <a href="/teacher/score/notes">学习笔记</a>
+                        </li>
+                        <li>
+                            <a href="/teacher/score/interview">面试能力</a>
+                        </li>
+                        <li>
+                            <a href="/teacher/score/project">商业项目</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                <li>
+                    <a href="/teacher/score/log"><i class="fa fa-fw fa-table"></i>日志</a>
+                </li>
+            #end
+
+            #if($role == "ROLE_COLLEGELEADER" || $role == "ROLE_DEPARTMENTLEADER" || $role ==
+                "ROLE_DEPARTMENTPRINCIPAL")
+                <li>
+                    <a href="#"><i class="fa fa-tags fa-fw"></i> 场地信息<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="flot.html">场地展示</a>
+                        </li>
+                        <li>
+                            <a href="morris.html">场地更改</a>
+                        </li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+            #end
+        </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>
+<!-- /.navbar-static-side -->
+</nav>
+
+<div id="page-wrapper">

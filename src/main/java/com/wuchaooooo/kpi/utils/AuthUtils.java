@@ -80,4 +80,15 @@ public class AuthUtils {
         }
         return null;
     }
+
+    public static String getAuthUserRole() {
+        SecurityContext ctx = SecurityContextHolder.getContext();
+        Authentication auth = ctx.getAuthentication();
+        if (auth.getPrincipal() instanceof PUser) {
+            PUser user= (PUser) auth.getPrincipal();
+            String role = "ROLE_" + user.getRole().toUpperCase();
+            return role;
+        }
+        return null;
+    }
 }

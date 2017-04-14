@@ -22,7 +22,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="login.vm"><i class="fa fa-fw fa-power-off"></i>退出登陆</a>
+                            <a href="login1.vm"><i class="fa fa-fw fa-power-off"></i>退出登陆</a>
                         </li>
                     </ul>
                 </li>

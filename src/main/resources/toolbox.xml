@@ -5,6 +5,7 @@
     <toolbox scope="request">
         <!-- currentProject util start -->
         <tool key="authUtils" class="com.wuchaooooo.kpi.utils.AuthUtils" ></tool>
+        <tool key="dateTool" class="org.apache.velocity.tools.generic.DateTool"></tool>
         <!-- currentProject util end -->
         <!-- 下面的这些配置都是velocity的配置，可以不用管，也不能更改 -->
         <!-- velocity util start -->

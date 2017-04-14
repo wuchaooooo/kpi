@@ -2,6 +2,7 @@ package com.wuchaooooo.kpi.controller.personal;
 
 import com.wuchaooooo.kpi.javabean.AjaxRequestResult;
 import com.wuchaooooo.kpi.javabean.po.PUser;
+import com.wuchaooooo.kpi.javabean.vo.VKnowledge;
 import com.wuchaooooo.kpi.javabean.vo.VScoreDaily;
 import com.wuchaooooo.kpi.javabean.vo.VStudent;
 import com.wuchaooooo.kpi.javabean.vo.VTeacher;
@@ -80,22 +81,27 @@ public class TeacherController {
             @RequestParam(value = "userName", required = false) String userName,
             Map<String, Object> model) {
         model.put("type", type);
+        model.put("userName", userName);
         if (userName == null) {
 
         } else {
+            //一周有7天的打分
+            List<Integer> days = new ArrayList<>();
+            for (int i = 0; i < 7; i++) {
+                days.add(i);
+            }
             //查询指定学生的分数情况
             if (type.equals("daily")) {
                 Map<String, Map<String, String>> map = teacherService.mapScoreDaily(userName);
                 Set<String> numOfWeekSet = map.keySet();
-                List<Integer> days = new ArrayList<>();
-                for (int i = 0; i < 7; i++) {
-                    days.add(i);
-                }
                 model.put("map", map);
                 model.put("numOfWeekList", numOfWeekSet);
                 model.put("days", days);
-            } else if (type.equals("knowlege")) {
-
+            } else if (type.equals("knowledge")) {
+                Map<String, List<VKnowledge>> map = teacherService.mapKnowledge(userName);
+                Set<String> numOfWeekSet = map.keySet();
+                model.put("map", map);
+                model.put("numOfWeekList", numOfWeekSet);
             }
         }
         return "teacher/score-teacher";

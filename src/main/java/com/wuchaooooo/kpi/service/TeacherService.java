@@ -1,5 +1,6 @@
 package com.wuchaooooo.kpi.service;
 
+import com.wuchaooooo.kpi.javabean.vo.VKnowledge;
 import com.wuchaooooo.kpi.javabean.vo.VScoreDaily;
 import com.wuchaooooo.kpi.javabean.vo.VTeacher;
 
@@ -16,4 +17,6 @@ public interface TeacherService {
     VTeacher getTeacher(String userName);
 
     Map<String, Map<String, String>> mapScoreDaily(String userName);
+
+    Map<String, List<VKnowledge>> mapKnowledge(String userName);
 }

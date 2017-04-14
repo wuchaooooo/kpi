@@ -1,7 +1,9 @@
-#set($layout='layout/blank.vm')
+#set($layout="layout/blank.vm")
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,110 +13,78 @@
     <title>轻课学员KPI管理系统</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/css/admin.css" rel="stylesheet">
+    <link href="/sb-admin-2/css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <!-- jQuery -->
-    <script src="/js/jquery.js"></script>
-##<script src="js/admin.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/js/bootstrap.min.js"></script>
+    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
 </head>
-<body id="login">
-<div id="login-form">
-    <h3>轻课学员KPI管理系统</h3>
-    <form id="loginConfirm" action="/login" method="post" class="form-horizontal" role="form">
 
-        <div class="form-group">
-            <span>$!{error}</span>
-        </div>
-        <div class="form-group">
-            <label for="userId" class="col-lg-2 control-label">用户ID</label>
-            <div class="col-lg-8">
-                <input type="text" id="userName" name="userName" class="form-control">
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" action="/login" METHOD="post">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="用户名" name="userName" type="text" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="密码" name="password" type="password" value="">
+                                </div>
+                                #if($error)
+                                    <div class="alert alert-danger" role="alert">
+                                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                        <span class="sr-only">Error:</span>
+                                        $error
+                                    </div>
+                                #end
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <input type="submit" class="btn btn-lg btn-success btn-block" value="Login"></input>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-        <br/>
-        <div class="form-group">
-            <label for="password" class="col-lg-2 control-label">密码</label>
-            <div class="col-lg-8">
-                <input type="password" id="password" name="password" class="form-control">
-            </div>
-        </div>
-        <br/>
+    </div>
 
-        <div class="form-group">
-            <label for="select-role" class="col-lg-2 control-label">角色</label>
-            <div class="col-lg-8">
-                <select name="role" id="select-role" class="form-control">
-                    <option value="student">学员</option>
-                    <option value="headTeacher">班主任</option>
-                    <option value="teacher">驻班教师</option>
-                    <option value="interviewer">面试官</option>
-                    <option value="investigator">调查员</option>
-                    <option value="guider">就业指导老师</option>
-                    <option value="admin">超级管理员</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <a id="login-btn" href="javascript:submit()"></a>
-        </div>
-    </form>
+    <!-- jQuery -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
 
-</div>
-<!-- /#wrapper -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-##<script>
-##    $(document).ready(function () {
-##        $("#login-form #login-btn").click(function () {
-##            var role = $("#select-role").val();
-##            var userId = $("#userId").val();
-##            var password = $("#password").val();
-##            var input = $("#loginConfirm").serialize();
-##            if (userId == "" || password == "") {
-##                alert("用户名密码不能为空，请重新输入");
-##            } else {
-##                $.ajax({
-##                    url: "loginConfirm",
-##                    type: "post",
-##                    contentType: "application/x-www-form-urlencoded",
-##                    data: input,
-##                    datatype: "json",
-##                    success: function (data) {
-##                        if (!data.success) {
-##                            alert("用户名或密码错误，请重新输入");
-##                            $("#userId").val("");
-##                            $("#password").val("");
-##                        } else {
-##                            location.href = role + "/index";
-##                        }
-##                    }
-##                });
-##            }
-##        });
-##    });
-##
-##</script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/vendor/metisMenu/metisMenu.min.js"></script>
 
-<script>
-    function submit() {
-        $("#loginConfirm").submit();
-    }
-</script>
+    <!-- Custom Theme JavaScript -->
+    <script src="/sb-admin-2/js/sb-admin-2.min.js"></script>
+
 </body>
+
 </html>
