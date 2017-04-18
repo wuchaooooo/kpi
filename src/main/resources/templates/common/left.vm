@@ -73,19 +73,21 @@
                 </li>
             #end
 
-            #if($role == "ROLE_COLLEGELEADER" || $role == "ROLE_DEPARTMENTLEADER" || $role ==
-                "ROLE_DEPARTMENTPRINCIPAL")
+            #if($role == "headteacher")
                 <li>
-                    <a href="#"><i class="fa fa-tags fa-fw"></i> 场地信息<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="flot.html">场地展示</a>
-                        </li>
-                        <li>
-                            <a href="morris.html">场地更改</a>
-                        </li>
-                    </ul>
-                    <!-- /.nav-second-level -->
+                    <a href="/headteacher/personalinfo"><i class="fa fa-fw fa-table"></i>个人信息</a>
+                </li>
+                <li>
+                    <a href="/headteacher/modifypwd"><i class="fa fa-fw fa-table"></i>修改密码</a>
+                </li>
+                <li>
+                    <a href="/headteacher/baseinfo"><i class="fa fa-fw fa-table"></i>基础信息维护</a>
+                </li>
+                <li>
+                    <a href="/headteacher/classavgsalary"><i class="fa fa-fw fa-table"></i>班级平均薪资</a>
+                </li>
+                <li>
+                    <a href="/headteacher/salaryranking"><i class="fa fa-fw fa-table"></i>就业薪资排行榜</a>
                 </li>
             #end
         </ul>

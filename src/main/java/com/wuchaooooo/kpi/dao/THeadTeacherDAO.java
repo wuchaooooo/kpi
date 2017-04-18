@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
 public interface THeadTeacherDAO {
     String TABLE_NAME = "t_head_teacher";
 
-    @Select("select * from " + TABLE_NAME + " where userId = #{userId} and password = #{password}")
-    PHeadTeacher getHeadTeacherByUserIdAndPassword(@Param("userId") String userId, @Param("password") String password);
+    @Select("select * from " + TABLE_NAME + " where userName = #{userName}")
+    PHeadTeacher getHeadTeacherByUserName(@Param("userName") String userName);
 }

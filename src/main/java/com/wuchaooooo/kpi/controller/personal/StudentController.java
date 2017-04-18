@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,6 +32,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping(value = "/student")
+@PreAuthorize("hasAnyAuthority('ROLE_STUDENT')")
 public class StudentController {
 
     private static final Logger logger = LoggerFactory.getLogger(StudentController.class);

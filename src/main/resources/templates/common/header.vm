@@ -12,7 +12,7 @@
                 <span class="icon-bar"></span>
             </button>
             <img class="img-circle pull-left" src="/images/logo.png" height="48px" style="padding-left: 13px; padding-top: 5px">
-            <a class="navbar-brand" href="/index"> KPI管理系统</a>
+            <a class="navbar-brand" href="/$role/index"> KPI管理系统</a>
         </div>
         <!-- /.navbar-header -->
         <ul class="nav navbar-top-links navbar-right">
@@ -213,7 +213,7 @@
                     (
                     #if($role eq "student")
                         学员
-                    #elseif($role eq "headTeacher")
+                    #elseif($role eq "headteacher")
                         班主任
                     #elseif($role eq "teacher")
                         驻班教师
@@ -226,7 +226,7 @@
                     #end )
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <li><a href="/ppt"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
                     <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i>Logout</a>

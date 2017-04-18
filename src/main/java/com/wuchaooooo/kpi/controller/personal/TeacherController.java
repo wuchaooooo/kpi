@@ -12,6 +12,7 @@ import com.wuchaooooo.kpi.service.TeacherService;
 import com.wuchaooooo.kpi.utils.AuthUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +28,7 @@ import java.util.Set;
 
 @Controller
 @RequestMapping(value = "/teacher")
+@PreAuthorize("hasAuthority('ROLE_TEACHER')")
 public class TeacherController {
     @Autowired
     @Qualifier(value = "teacherServiceImpl")

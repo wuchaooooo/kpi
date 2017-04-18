@@ -18,8 +18,8 @@ public class HeadTeacherServiceImpl implements HeadTeacherService{
     private THeadTeacherDAO headTeacherDAO;
 
     @Override
-    public VHeadTeacher getHeadTeacherByUserIdAndPassword(String userId, String password) {
-        PHeadTeacher pHeadTeacher = headTeacherDAO.getHeadTeacherByUserIdAndPassword(userId, password);
+    public VHeadTeacher getHeadTeacher(String userName) {
+        PHeadTeacher pHeadTeacher = headTeacherDAO.getHeadTeacherByUserName(userName);
         VHeadTeacher vHeadTeacher = new VHeadTeacher();
         BeanUtils.copyProperties(pHeadTeacher, vHeadTeacher);
         return vHeadTeacher;

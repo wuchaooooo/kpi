@@ -25,8 +25,9 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading" style="padding-bottom: 20px">
                 日常表现
+                <button type="button" class="btn btn-primary btn-sm pull-right">添加</button>
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -34,7 +35,7 @@
                     <table class="table table-bordered table-hover table-striped">
                         <thead>
                         <tr>
-                            <th class="date"></th>
+                            <th></th>
                             <th>周一</th>
                             <th>周二</th>
                             <th>周三</th>
@@ -95,16 +96,16 @@
                         </thead>
                         <tbody>
                             #foreach($numOfWeek in $numOfWeekList)
-                            #foreach($knowledge in $map.get($numOfWeek))
-                            <tr>
-                                <td>第${numOfWeek}周</td>
-                                <td>$knowledge.exercise</td>
-                                <td>$knowledge.score</td>
-                                <td>
+                                #foreach($knowledge in $map.get($numOfWeek))
+                                <tr>
+                                    <td>第${numOfWeek}周</td>
+                                    <td>$knowledge.exercise</td>
+                                    <td>$knowledge.score</td>
+                                    <td>
 
-                                </td>
-                            </tr>
-                            #end
+                                    </td>
+                                </tr>
+                                #end
                             #end
                         </tbody>
                     </table>

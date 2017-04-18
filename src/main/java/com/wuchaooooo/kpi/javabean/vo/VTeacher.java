@@ -7,7 +7,6 @@ import lombok.Data;
  */
 @Data
 public class VTeacher extends VUser{
-    private String realName;
     private String mobile;
     private String email;
 

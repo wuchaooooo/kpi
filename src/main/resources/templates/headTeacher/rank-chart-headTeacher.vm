@@ -16,7 +16,7 @@
 <!-- /.row -->
 
 <!-- jQuery -->
-<script src="js/admin.js"></script>
+<script src="/data/admin.js"></script>
 <!-- Morris Charts JavaScript -->
-<script src="/js/plugins/morris/raphael.min.js"></script>
-<script src="/js/plugins/morris/morris.min.js"></script>
+<script src="/vendor/raphael/raphael.min.js"></script>
+<script src="/vendor/morrisjs/morris.min.js"></script>

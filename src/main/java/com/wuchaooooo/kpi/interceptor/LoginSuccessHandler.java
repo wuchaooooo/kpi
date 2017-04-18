@@ -31,6 +31,9 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
         } else if (roles.contains("ROLE_TEACHER")) {
             response.sendRedirect(basePath + "teacher/index");
             return;
+        } else if (roles.contains("ROLE_HEADTEACHER")) {
+            response.sendRedirect(basePath + "headteacher/index");
+            return;
         }
 
         //获得授权后可得到用户信息   可使用SUserService进行数据库操作
