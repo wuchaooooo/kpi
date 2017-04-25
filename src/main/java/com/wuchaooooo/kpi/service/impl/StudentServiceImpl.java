@@ -1,6 +1,5 @@
 package com.wuchaooooo.kpi.service.impl;
 
-import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.MimeUtility;
 import com.wuchaooooo.kpi.dao.TClazzDAO;
 import com.wuchaooooo.kpi.dao.TFeedbackDAO;
 import com.wuchaooooo.kpi.dao.TStudentDAO;
@@ -194,9 +193,12 @@ public class StudentServiceImpl implements StudentService{
         String browser = UserAgent.parseUserAgentString(userAgentString).getBrowser().getGroup().getName();
         if (browser.equals("Chrome") || browser.equals("Internet Exploer") || browser.equals("Safari")) {
             encodedFileName = URLEncoder.encode(fileName, "utf-8").replaceAll("\\+", "%20");
-        } else {
-            encodedFileName = MimeUtility.encodeWord(fileName);
         }
+
+        //因为MimeUtility属于com.sun.xml.internal.messaging.saaj.packaging.mime.internet这个包，引入的话，maven编译时会报错。
+//        else {
+//            encodedFileName = MimeUtility.encodeWord(fileName);
+//        }
 
         //设置Content-Disposition响应头，一方面可以指定下载的文件名，另一方面可以引导浏览器弹出文件下载窗口
         response.setHeader("Content-Disposition", "attachment;fileName=\"" + encodedFileName + "\"");
