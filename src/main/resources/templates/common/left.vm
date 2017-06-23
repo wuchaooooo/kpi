@@ -90,6 +90,20 @@
                     <a href="/headteacher/salaryranking"><i class="fa fa-fw fa-table"></i>就业薪资排行榜</a>
                 </li>
             #end
+            #if($role == "admin")
+                <li>
+                    <a href="/admin/personalinfo"><i class="fa fa-fw fa-table"></i>个人信息</a>
+                </li>
+                <li>
+                    <a href="/admin/modifypwd"><i class="fa fa-fw fa-table"></i>修改密码</a>
+                </li>
+                <li class="active">
+                    <a href="/admin/accounts"><i class="fa fa-fw fa-table"></i>账户管理</a>
+                </li>
+##                <li>
+##                    <a href="info-admin.vm"><i class="fa fa-fw fa-table"></i>基础信息维护</a>
+##                </li>
+            #end
         </ul>
     </div>
     <!-- /.sidebar-collapse -->

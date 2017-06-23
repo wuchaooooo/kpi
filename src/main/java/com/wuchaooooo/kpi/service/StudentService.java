@@ -18,9 +18,13 @@ import java.util.List;
 public interface StudentService {
     VStudent getStudent(String userName);
 
+    VStudent getStudent(long studentId);
+
     VStudent getStudent(String userName, String password);
 
     List<VStudent> listStudent();
+
+    List<VStudent> listStudent(String ClassName);
 
     void updatePersonalInfo(VStudent vStudent);
 
@@ -43,6 +47,8 @@ public interface StudentService {
     void updateFeedback(VFeedback vFeedback);
 
     void removeFeedback(Integer feedbackId);
+
+    void removeStudent(long studentId);
 
 
 }

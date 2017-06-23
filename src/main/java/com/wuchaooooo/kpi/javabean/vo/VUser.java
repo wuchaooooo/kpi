@@ -11,4 +11,5 @@ public class VUser {
     private String userName;
     private String password;
     private String realName;
+    private String role;
 }

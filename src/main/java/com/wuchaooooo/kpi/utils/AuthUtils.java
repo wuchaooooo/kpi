@@ -3,6 +3,7 @@ package com.wuchaooooo.kpi.utils;
 import com.wuchaooooo.kpi.javabean.po.PUser;
 import com.wuchaooooo.kpi.javabean.vo.VTeacher;
 import com.wuchaooooo.kpi.javabean.vo.VUser;
+import com.wuchaooooo.kpi.service.AdminService;
 import com.wuchaooooo.kpi.service.HeadTeacherService;
 import com.wuchaooooo.kpi.service.StudentService;
 import com.wuchaooooo.kpi.service.TeacherService;
@@ -37,6 +38,9 @@ public class AuthUtils {
     @Autowired
     @Qualifier("headTeacherServiceImpl")
     private HeadTeacherService headTeacherService;
+    @Autowired
+    @Qualifier("adminServiceImpl")
+    private AdminService adminService;
 
     @PostConstruct
     public void init() {
@@ -77,7 +81,7 @@ public class AuthUtils {
         } else if (role.equals("headteacher")) {
             return authUtils.headTeacherService.getHeadTeacher(userName);
         } else if (role.equals("admin")) {
-
+            return authUtils.adminService.getAdmin(userName);
         }
         return null;
     }

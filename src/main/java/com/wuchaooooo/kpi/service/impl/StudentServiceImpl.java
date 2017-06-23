@@ -62,17 +62,24 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
+    public VStudent getStudent(long studentId) {
+        PStudent pStudent = studentDao.getStudentByStudentId(studentId);
+        VStudent vStudent = new VStudent();
+        BeanUtils.copyProperties(pStudent, vStudent);
+        return vStudent;
+    }
+
+    @Override
     public List<VStudent> listStudent() {
         List<PStudent> pStudentList = studentDao.listStudent();
-        List<VStudent> vStudentList = new ArrayList<VStudent>();
-        for (PStudent pStudent : pStudentList) {
-            VStudent vStudent = new VStudent();
-            BeanUtils.copyProperties(pStudent, vStudent);
-            String className = pStudent.getClassName();
-            PClazz pClazz = clazzDAO.getClazzByClazzName(className);
-            vStudent.setTeacher(pClazz.getTeacher());
-            vStudentList.add(vStudent);
-        }
+        List<VStudent> vStudentList = copyPStudnet2VStudent(pStudentList);
+        return vStudentList;
+    }
+
+    @Override
+    public List<VStudent> listStudent(String className) {
+        List<PStudent> pStudentList = studentDao.listStudentByClassName(className);
+        List<VStudent> vStudentList = copyPStudnet2VStudent(pStudentList);
         return vStudentList;
     }
 
@@ -252,5 +259,23 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public void removeFeedback(Integer feedbackId) {
         feedbackDAO.removeFeedBack(feedbackId);
+    }
+
+    @Override
+    public void removeStudent(long studentId) {
+        studentDao.removeStudent(studentId);
+    }
+
+    private List<VStudent> copyPStudnet2VStudent(List<PStudent> pStudentList) {
+        List<VStudent> vStudentList = new ArrayList<VStudent>();
+        for (PStudent pStudent : pStudentList) {
+            VStudent vStudent = new VStudent();
+            BeanUtils.copyProperties(pStudent, vStudent);
+            String className = pStudent.getClassName();
+            PClazz pClazz = clazzDAO.getClazzByClazzName(className);
+            vStudent.setTeacher(pClazz.getTeacher());
+            vStudentList.add(vStudent);
+        }
+        return vStudentList;
     }
 }

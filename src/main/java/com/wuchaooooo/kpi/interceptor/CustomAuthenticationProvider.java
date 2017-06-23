@@ -40,7 +40,6 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String password = (String) authentication.getCredentials();
         UserDetails user = customUserDetailsService.loadUserByUsername(username);
         LOGGER.info("password={}, needPassword={}", password, user.getPassword());
-        String s = passwordEncoder().encode("123");
         PUser pUser = userService.getUser(username, user.getPassword());
         //密码匹配验证
         if (passwordEncoder().matches(password, user.getPassword())) {

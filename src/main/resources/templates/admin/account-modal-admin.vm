@@ -1,0 +1,33 @@
+#set($layout ='layout/blank.vm')
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+            class="sr-only">Close</span></button>
+    <h4 class="modal-title" id="myModalLabel">账户详情</h4>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <form id="submitForm">
+                <input name="userId" value="$user.id" id="placeName" hidden>
+                <div class="form-group">
+                    <label for="userName" class="control-label">用户名</label>
+                    <input name="userName" type="text" class="form-control form_datetime"
+                           placeholder="请输入" id="userName" value="$!user.userName">
+                </div>
+                <div class="form-group">
+                    <label for="role" class="control-label">角色</label>
+                    <select name="role" class="form-control" id="role">
+                        <option value="student" #if($user.role == "student")selected#end>学生</option>
+                        <option value="teacher" #if($user.role == "teacher")selected#end>驻班教师</option>
+                        <option value="headteacher" #if($user.role == "headteacher")selected#end>班主任</option>
+                        <option value="admin" #if($user.role == "admin")selected#end>管理员</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" id="updateFeedback$!{feedback.id}" onclick="updateUser($!{user.id})" class="btn btn-primary">保存更改</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+</div>

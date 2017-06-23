@@ -1,0 +1,56 @@
+#set($layout ='layout/blank.vm')
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+            class="sr-only">Close</span></button>
+    <h4 class="modal-title" id="myModalLabel">账户详情</h4>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <form id="submitForm">
+                <input name="studentId" value="$student.id" id="placeName" hidden>
+                <div class="form-group">
+                    <label for="userName" class="control-label">学号</label>
+                    <input name="userName" type="text" class="form-control form_datetime"
+                           placeholder="请输入" id="userName" value="$!student.userName">
+                </div>
+                <div class="form-group">
+                    <label for="realName" class="control-label">姓名</label>
+                    <input name="realName" type="text" class="form-control form_datetime"
+                           placeholder="请输入" id="realName" value="$!student.realName">
+                </div>
+                <div class="form-group">
+                    <label for="className" class="control-label">班级</label>
+                    <input name="className" type="text" class="form-control form_datetime"
+                           placeholder="请输入" id="className" value="$!student.className">
+                </div>
+                <div class="form-group">
+                    <label for="email" class="control-label">邮箱</label>
+                    <input name="email" type="text" class="form-control form_datetime"
+                           placeholder="请输入" id="email" value="$!student.email">
+                </div>
+                <div class="form-group">
+                    <label for="mobile" class="control-label">电话</label>
+                    <input name="mobile" type="text" class="form-control form_datetime"
+                           placeholder="请输入" id="mobile" value="$!student.mobile">
+                </div>
+                <div class="form-group">
+                    <label for="isEmploy" class="control-label">就业情况</label>
+                    <select name="isEmploy" class="form-control">
+                        <option value="0" #if($student.isEmploy == 0)selected#end>未就业</option>
+                        <option value="1" #if($student.isEmploy == 1)selected#end>已就业</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="salary" class="control-label">薪资</label>
+                    <input name="salary" type="text" class="form-control form_datetime"
+                           placeholder="请输入" id="salary" value="$!student.salary">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" id="updateFeedback$!{feedback.id}" onclick="updateUser($!{user.id})" class="btn btn-primary">保存更改</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+</div>

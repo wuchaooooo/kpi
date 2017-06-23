@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class PPTController {
-    @RequestMapping(value = "ppt")
+    @RequestMapping(value = "/ppt")
     public String getPPT() {
         return "ppt/middle-reply";
     }

@@ -217,12 +217,8 @@
                         班主任
                     #elseif($role eq "teacher")
                         驻班教师
-                    #elseif($role eq "interviewer")
-                        面试官
-                    #elseif($!role eq "investigator")
-                        调查员
-                    #elseif($!role eq "guider")
-                        就业指导老师
+                    #elseif($role eq "admin")
+                        管理员
                     #end )
                 </a>
                 <ul class="dropdown-menu dropdown-user">

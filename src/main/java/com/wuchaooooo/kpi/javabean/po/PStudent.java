@@ -12,6 +12,7 @@ public class PStudent extends PUser{
     private String email;
     private String school;
     private String major;
-    private String employmentStatus;
+    private int isEmploy;
     private String className;
+    private double salary;
 }

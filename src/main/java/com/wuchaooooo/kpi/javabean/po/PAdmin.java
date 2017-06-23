@@ -7,6 +7,8 @@ import lombok.Data;
  */
 @Data
 public class PAdmin {
+    private long id;
+    private String userName;
     private String realName;
     private String mobile;
     private String email;

@@ -16,7 +16,8 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
-                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example" hidden>
+                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example"
+                       hidden>
                     <thead>
                     <tr>
                         <th>序号 <i class="fa fa-sort"></i></th>
@@ -34,14 +35,18 @@
                         #foreach($student in $students)
                             #set($i = $i + 1)
                         <tr>
-                            <td >$i</td>
+                            <td>$i</td>
                             <td>$student.userName</td>
                             <td>$student.realName</td>
                             <td>$student.className</td>
                             <td>$student.email</td>
                             <td>$student.mobile</td>
-                            <td>$student.teacher</td>
-                            <td>$student.teacher</td>
+                            <td>#if($student.isEmploy == 1)
+                                已就业
+                            #else
+                                未就业
+                            #end</td>
+                            <td>$student.salary</td>
                         </tr>
                         #end
                     </tbody>

@@ -22,6 +22,9 @@ public interface TClazzDAO {
     @Select("select * from " + TABLE_NAME + " where `className` = #{className}")
     PClazz getClazzByClazzName(@Param("className") String className);
 
+    @Select("select * from " + TABLE_NAME + " where `headteacher` = #{headTeacher}")
+    PClazz getClassByHeadTeacher(@Param("headTeacher") String headTeacher);
+
 //    @Select("select * from " + TABLE_NAME + " where classType = #{clazzType} and classNo = #{clazzNo}")
 
 }

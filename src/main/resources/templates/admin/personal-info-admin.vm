@@ -14,18 +14,18 @@
         <form role="form">
 
             <div class="form-group">
-                <label>用户ID</label>
-                <input class="form-control" value="陈栋">
+                <label>用户名</label>
+                <input class="form-control" value="$!admin.userName">
             </div>
 
             <div class="form-group">
                 <label>邮箱</label>
-                <input class="form-control" placeholder="请输入您的邮箱">
+                <input class="form-control" placeholder="请输入您的邮箱" value="$!admin.email">
             </div>
 
             <div class="form-group">
                 <label>电话</label>
-                <input class="form-control" placeholder="请输入您的电话">
+                <input class="form-control" placeholder="请输入您的电话" value="$admin.mobile">
             </div>
             <button type="submit" class="btn btn-default">保存修改</button>
 

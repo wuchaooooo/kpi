@@ -11,11 +11,10 @@ public class VStudent extends VUser{
     private String email;
     private String school;
     private String major;
-    private String employmentStatus;
     private String className;
     private String teacher;
     private double salary;
-    private boolean isEmploy;
+    private int isEmploy;
     private String company;
 
 }

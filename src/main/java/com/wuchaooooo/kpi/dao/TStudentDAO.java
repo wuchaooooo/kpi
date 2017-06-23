@@ -1,10 +1,7 @@
 package com.wuchaooooo.kpi.dao;
 
 import com.wuchaooooo.kpi.javabean.po.PStudent;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -26,11 +23,17 @@ public interface TStudentDAO {
     @Select("select * from " + TABLE_NAME)
     List<PStudent> listStudent();
 
+    @Select("select * from " + TABLE_NAME + " where `className` = #{className}")
+    List<PStudent> listStudentByClassName(@Param("className") String className);
+
     @Update("update " + TABLE_NAME + " set `mobile` = #{mobile}, `email` = #{email}, `school` = #{school}, `major` = #{major} where `userName` = #{userName}")
     void updatePersonalInfo(PStudent pStudent);
 
     @Select("select * from " + TABLE_NAME + " where `className` = #{className}")
     List<PStudent> getClassmates(@Param("className") String className);
+
+    @Delete("delete from " + TABLE_NAME + " where id = #{studentId}")
+    void removeStudent(long studentId);
 
 
 }

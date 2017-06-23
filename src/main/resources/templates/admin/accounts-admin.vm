@@ -9,139 +9,129 @@
 <!-- /.row -->
 
 <div class="row">
-    <div class="col-lg-6">
-
-        <table class="table table-bordered table-striped" id="account-table">
-            <thead>
-            <tr>
-                <th class="eID sortable"><a href="#">用户ID</a><i class="fa fa-sort"></i></th>
-                <th class="eName sortable"><a href="#">姓名</a><i class="fa fa-sort"></i></th>
-                <th class="permission sortable"><a href="#">用户类别</a><i class="fa fa-sort"></i></th>
-                <th class="action"></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td class="eID">001</td>
-                <td class="eName">张三</td>
-                <td class="permission">学员</td>
-                <td>
-                    <a href="#" class="user-modify">修改</a>
-                    <a href="#" class="user-reset">重置密码</a>
-                    <a href="#" style="float:right;color:red;">删除</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="eID">002</td>
-                <td class="eName">李四</td>
-                <td class="permission">调查员 | 面试官</td>
-                <td>
-                    <a href="#" class="user-modify">修改</a>
-                    <a href="#" class="user-reset">重置密码</a>
-                    <a href="#" style="float:right;color:red;">删除</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="eID">003</td>
-                <td class="eName">老王</td>
-                <td class="permission">面试官</td>
-                <td>
-                    <a href="#" class="user-modify">修改</a>
-                    <a href="#" class="user-reset">重置密码</a>
-                    <a href="#" style="float:right;color:red;">删除</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="eID">004</td>
-                <td class="eName">老李</td>
-                <td class="permission">超级管理员</td>
-                <td>
-                    <a href="#" class="user-modify">修改</a>
-                    <a href="#" class="user-reset">重置密码</a>
-                    <a href="#" style="float:right;color:red;">删除</a>
-                </td>
-            </tr>
-            <tr>
-                <td class="eID">005</td>
-                <td class="eName">小方</td>
-                <td class="permission">就业指导老师</td>
-                <td>
-                    <a href="#" class="user-modify">修改</a>
-                    <a href="#" class="user-reset">重置密码</a>
-                    <a href="#" style="float:right;color:red;">删除</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <button type="submit" id="create-user" class="btn btn-default float-r">创建账户</button>
-    </div>
-    <div class="col-lg-4">
-        <form id="user-form">
-
-            <div class="form-group">
-                <label>用户ID</label>
-                <input class="form-control form-eID" value="">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                信息详情
+                <button type="button" class="btn btn-sm btn-primary pull-right" onclick="userDetail(0)">
+                    添加
+                </button>
             </div>
-
-            <div class="form-group">
-                <label>姓名</label>
-                <input class="form-control form-eName" value="">
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example" hidden>
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>账号</th>
+                        <th>角色</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        #set($i = 0)
+                        #foreach($user in $users)
+                            #set($i = $i + 1)
+                        <tr>
+                            <td >$i</td>
+                            <td>$user.userName</td>
+                            <td>$user.role</td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-primary" onclick="userDetail('$user.id')">
+                                    修改
+                                </button>
+                                <button type="button" class="btn btn-sm btn-warning" onclick="modifyPwd('$user.id')">
+                                    修改密码
+                                </button>
+                                <button type="button" class="btn btn-sm btn-danger" onclick="removeUser($user.id)">
+                                    删除
+                                </button>
+                            </td>
+                        </tr>
+                        #end
+                    </tbody>
+                </table>
+                <!-- /.table-responsive -->
             </div>
-            <div class="form-group">
-                <label>用户类别</label>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="form-permission" value="学员">学员
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="form-permission" value="班主任">班主任
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="form-permission" value="驻班教师">驻班教师
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="form-permission" value="面试官">面试官
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="form-permission" value="调查员">调查员
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="form-permission" value="就业指导老师">就业指导老师
-                    </label>
-                </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="form-permission" value="超级管理员">超级管理员
-                    </label>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-default">保存修改</button>
-
-        </form>
-
-        <form id="user-reset-form">
-
-            <div class="form-group">
-                <label>当前随机生成的密码为：</label>
-                <p style="color:red;">33ud4i8dk2</p>
-            </div>
-
-            <div class="form-group">
-                <label>将密码发送到：</label>
-                <input class="form-control" value="">
-            </div>
-            <button type="submit" class="btn btn-default">发送</button>
-
-        </form>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#dataTables-example').DataTable({
+            responsive: true,
+            language: {
+                "sProcessing": "处理中...",
+                "sLengthMenu": "显示 _MENU_ 项结果",
+                "sZeroRecords": "没有匹配结果",
+                "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+                "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                "sInfoPostFix": "",
+                "sSearch": "搜索:",
+                "sUrl": "",
+                "sEmptyTable": "表中数据为空",
+                "sLoadingRecords": "载入中...",
+                "sInfoThousands": ",",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "上页",
+                    "sNext": "下页",
+                    "sLast": "末页"
+                },
+                "oAria": {
+                    "sSortAscending": ": 以升序排列此列",
+                    "sSortDescending": ": 以降序排列此列"
+                }
+            }
+        });
+        $("#dataTables-example").removeAttr("hidden");
+    });
+
+    function userDetail(userId) {
+        $('#myModal').modal({
+            remote: "/admin/accountmodal?userid=" + userId
+        });
+    }
+
+    function modifyPwd(userId) {
+        $('#myModal').modal({
+            remote: "/admin/accountpwd?userid=" + userId
+        });
+    }
+
+    $("#myModal").on("hidden.bs.modal", function() {
+        $(this).removeData("bs.modal");
+    });
+
+    function removeUser(userId) {
+        $.ajax({
+            url: "/admin/accounts/" + userId,
+            type: 'DELETE',
+            cache: false,
+            dataType: 'json',
+            success: function (data) {
+                if (data.success) {
+                    window.location.reload();
+                } else {
+                    alert(data.errorMsg);
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("发生错误,请稍后重试");
+            }
+        });
+    }
+</script>

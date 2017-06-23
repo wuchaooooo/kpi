@@ -3,10 +3,9 @@ package com.wuchaooooo.kpi.controller.personal;
 import com.wuchaooooo.kpi.javabean.AjaxRequestResult;
 import com.wuchaooooo.kpi.javabean.po.PUser;
 import com.wuchaooooo.kpi.javabean.vo.VKnowledge;
-import com.wuchaooooo.kpi.javabean.vo.VScoreDaily;
 import com.wuchaooooo.kpi.javabean.vo.VStudent;
 import com.wuchaooooo.kpi.javabean.vo.VTeacher;
-import com.wuchaooooo.kpi.service.ClazzService;
+import com.wuchaooooo.kpi.service.ClassService;
 import com.wuchaooooo.kpi.service.StudentService;
 import com.wuchaooooo.kpi.service.TeacherService;
 import com.wuchaooooo.kpi.utils.AuthUtils;
@@ -39,8 +38,8 @@ public class TeacherController {
     private StudentService studentService;
 
     @Autowired
-    @Qualifier(value = "clazzServiceImpl")
-    private ClazzService clazzService;
+    @Qualifier(value = "classServiceImpl")
+    private ClassService classService;
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(HttpSession session, Map<String, Object> model) {

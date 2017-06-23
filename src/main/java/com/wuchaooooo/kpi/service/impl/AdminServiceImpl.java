@@ -6,6 +6,7 @@ import com.wuchaooooo.kpi.javabean.vo.VAdmin;
 import com.wuchaooooo.kpi.service.AdminService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 /**
@@ -20,6 +21,14 @@ public class AdminServiceImpl implements AdminService{
     @Override
     public VAdmin getAdminByUserIdAndPassword(String userId, String password) {
         PAdmin pAdmin = adminDAO.getAdminByUserIdAndPassword(userId, password);
+        VAdmin vAdmin = new VAdmin();
+        BeanUtils.copyProperties(pAdmin, vAdmin);
+        return vAdmin;
+    }
+
+    @Override
+    public VAdmin getAdmin(String userName) {
+        PAdmin pAdmin = adminDAO.getAdminByUserName(userName);
         VAdmin vAdmin = new VAdmin();
         BeanUtils.copyProperties(pAdmin, vAdmin);
         return vAdmin;

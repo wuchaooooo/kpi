@@ -1,17 +1,22 @@
 package com.wuchaooooo.kpi.controller.personal;
 
+import com.sun.org.apache.regexp.internal.RE;
+import com.wuchaooooo.kpi.javabean.AjaxRequestResult;
 import com.wuchaooooo.kpi.javabean.po.PUser;
+import com.wuchaooooo.kpi.javabean.vo.VClass;
 import com.wuchaooooo.kpi.javabean.vo.VHeadTeacher;
 import com.wuchaooooo.kpi.javabean.vo.VStudent;
+import com.wuchaooooo.kpi.service.ClassService;
 import com.wuchaooooo.kpi.service.HeadTeacherService;
+import com.wuchaooooo.kpi.service.StudentService;
 import com.wuchaooooo.kpi.utils.AuthUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,6 +30,12 @@ public class HeadTeacherController {
     @Autowired
     @Qualifier("headTeacherServiceImpl")
     private HeadTeacherService headTeacherService;
+    @Autowired
+    @Qualifier("studentServiceImpl")
+    private StudentService studentService;
+    @Autowired
+    @Qualifier("classServiceImpl")
+    private ClassService classService;
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(Map<String, Object> model) {
@@ -35,7 +46,7 @@ public class HeadTeacherController {
     @RequestMapping(value = "/personalinfo", method = RequestMethod.GET)
     public String personalInfo(Map<String, Object> model) {
         VHeadTeacher vHeadTeacher = getHeadTeacher();
-        model.put("role", "student");
+        model.put("role", "headTeacher");
         model.put("headTeacher", vHeadTeacher);
         return "headTeacher/personal-info-headTeacher";
 
@@ -45,7 +56,22 @@ public class HeadTeacherController {
 
     @RequestMapping(value = "/baseinfo", method = RequestMethod.GET)
     public String baseinfo(Map<String, Object> model) {
+        String userName = AuthUtils.getAuthUser().getUserName();
+        VClass vClass = classService.getClass(userName);
+        List<VStudent> vStudentList = studentService.listStudent(vClass.getClassName());
+        model.put("students", vStudentList);
         return "headTeacher/info-headTeacher";
+    }
+
+    @RequestMapping(value = "/studentmodal", method = RequestMethod.GET)
+    public String studentModal(
+            Map<String, Object> model,
+            @RequestParam("studentid") long studentId) {
+        if (studentId != 0) {
+            VStudent vStudent = studentService.getStudent(studentId);
+            model.put("student", vStudent);
+        }
+        return "headTeacher/student-modal-headTeacher";
     }
 
     @RequestMapping(value = "/classavgsalary", method = RequestMethod.GET)
@@ -53,9 +79,18 @@ public class HeadTeacherController {
         return "headTeacher/salary-chart-headTeacher";
     }
 
-    @RequestMapping(value = "salaryranking", method = RequestMethod.GET)
+    @RequestMapping(value = "/salaryranking", method = RequestMethod.GET)
     public String rank() {
         return "headTeacher/rank-chart-headTeacher";
+    }
+
+    @RequestMapping(value = "/students/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public AjaxRequestResult removeStudent(@PathVariable("id") long studentId) {
+        AjaxRequestResult ajaxRequestResult = new AjaxRequestResult();
+        studentService.removeStudent(studentId);
+        ajaxRequestResult.setSuccess(true);
+        return ajaxRequestResult;
     }
 
 

@@ -8,4 +8,6 @@ import com.wuchaooooo.kpi.javabean.vo.VAdmin;
 public interface AdminService {
     VAdmin getAdminByUserIdAndPassword(String userId, String password);
 
+    VAdmin getAdmin(String userName);
+
 }
